@@ -1,4 +1,9 @@
+#ifndef DLLSPEC_H_INCLUDED
+#define DLLSPEC_H_INCLUDED
 
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 typedef struct node {
     struct node *prev;
@@ -38,3 +43,5 @@ dllNode_t *DLL_get_tail(dllNode_t *head);//取得list的尾巴
 
 
 void DLL_free_head(dllNode_t *head);//釋放空的head
+
+#endif

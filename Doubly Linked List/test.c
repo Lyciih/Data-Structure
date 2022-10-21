@@ -37,18 +37,18 @@ int printf_node_data(dllNode_t *current)
 
 int main()
 {
-	printf("測試程式開始\n");
+	printf("Test program begin\n");
 	printf("\n");
 	
-	printf("1.申請一個空list\n");
+	printf("1.Apply a empty list\n");
 	dllNode_t *list_one = DLL_init();
 	printf("\n");
 	
-	printf("2.測試是否為空\n");
+	printf("2.Test list is empty?\n");
 	DLL_isEmpty(list_one);
 	printf("\n");
 
-	printf("3.產生測試節點 z a b c d e f\n");	
+	printf("3.Create nodes z a b c d e f\n");	
 	testNode z = testNode_new();
 	z.data = 'z';
 	testNode a = testNode_new();
@@ -66,91 +66,91 @@ int main()
 	printf("\n");
 
 
-	printf("4.測試 DLL_get_tail 在list_one為空時的結果\n");
+	printf("4.Test DLL_get_tail when list_one is empty\n");
 	dllNode_t *tail = DLL_get_tail(list_one);
 	printf("\n");
 
-	printf("5.將z節點用 DLL_add_first 插入為list_one的第一個\n");
+	printf("5.Use DLL_add_first insert z as first node of list_one\n");
 	DLL_add_first((dllNode_t *)&z, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 
-	printf("6.將a節點用 DLL_addto_next 插入到z節點之後\n");
+	printf("6.Use DLL_addto_next insert a after z\n");
         DLL_addto_next((dllNode_t *)&a, (dllNode_t *)&z);
 	printf_all_list(list_one);
 	printf("\n");
 
-	printf("7.將b節點用 DLL_addto_next 插入到a節點之後\n");
+	printf("7.Use DLL_addto_next insert b after a\n");
 	DLL_addto_next((dllNode_t *)&b, (dllNode_t *)&a);
 	printf_all_list(list_one);
 	printf("\n");
 
-	printf("8.將c節點用 DLL_addto_next 插入到a節點之後\n");
+	printf("8.Use DLL_addto_next insert c after a\n");
 	DLL_addto_next((dllNode_t *)&c, (dllNode_t *)&a);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("9.將d節點用 DLL_addto_prev 插入到b節點之前\n");
+	printf("9.Use DLL_addto_prev insert d before b\n");
 	DLL_addto_prev((dllNode_t *)&d, (dllNode_t *)&b);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("10.將d節點用 DLL_addto_prev 插入到list_one的head之前\n");
+	printf("10.Use DLL_addto_prev insert d before head of list_one\n");
 	DLL_addto_prev((dllNode_t *)&d, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("11.將e節點用 DLL_add_first 插入為list_one的第一個\n");
+	printf("11.Use DLL_add_first insert e as first of list_one\n");
 	DLL_add_first((dllNode_t *)&e, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("12.測試DLL_get_tail在list_one不為空的結果\n");
+	printf("12.Test DLL_get_tail  when list_one not empty\n");
 	tail = DLL_get_tail(list_one);
-	printf(">>>尾巴是%c\n", ((testNode *)tail)->data);
+	printf(">>>The tail is %c\n", ((testNode *)tail)->data);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("13.將f節點用 DLL_add_tail 插入為list_one的最後一個\n");
+	printf("13.Using DLL_add_tail insert f as tail of list_one\n");
 	DLL_add_tail((dllNode_t *)&f, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 
-	printf("14.列印最後結果的所有data\n");
+	printf("14.Print data for each node in list_one\n");
 	printf_all_list(list_one);
 	printf("\n");
 
-	printf("15.用 DLL_num_nodes 計算list_one中有幾個node\n");
+	printf("15.Use DLL_num_nodes to calculate how many nodes are in list_one\n");
 	DLL_num_nodes(list_one);
 	printf("\n");
 	
-	printf("16.用 DLL_prev_node 取得 c 的前一個node\n");
-	printf(">>>c的前一個node是 ");
+	printf("16.get the previous node of c with DLL_prev_node\n");
+	printf(">>>The previous node of c is ");
 	printf_node_data(DLL_prev_node((dllNode_t *)&c));
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("17.用 DLL_next_node 取得 c 的後一個node\n");
-	printf(">>>c的後一個node是 ");
+	printf("17.Get the next node of c with DLL_next_node\n");
+	printf(">>>The next node of c is ");
 	printf_node_data(DLL_next_node((dllNode_t *)&c));
 	printf_all_list(list_one);
 	printf("\n");
 
-	printf("18.用 DLL_delete 將 c 從list_one中刪除\n");
+	printf("18. Use DLL_delete remove c from list_one\n");
 	DLL_delete((dllNode_t *)&c);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("19.用 DLL_delete 將 f 從list_one中刪除\n");
+	printf("19.Use DLL_delete remove f from list_one\n");
 	DLL_delete((dllNode_t *)&f);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("20.建立list_two\n");
+	printf("20.Create list_two\n");
 	dllNode_t *list_two = DLL_init();
 	printf("\n");
 	
-	printf("21.產生測試節點 g h i j k l m\n");	
+	printf("21.Create nodes g h i j k l m\n");	
 	testNode g = testNode_new();
 	g.data = 'g';
 	testNode h = testNode_new();
@@ -177,12 +177,12 @@ int main()
 	printf_all_list(list_two);
 	printf("\n");
 
-	printf("22.用 DLL_concate 將 list_two 串在 list_one 之後\n");
+	printf("22.Use DLL_concate Concatenate list_two after list_one\n");
 	DLL_concate(list_two, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 	
-	printf("23.用 DLL_num_nodes 計算現在list_one中有幾個node\n");
+	printf("23.Use DLL_num_nodes to calculate how many nodes there are now in list_one\n");
 	DLL_num_nodes(list_one);
 	printf("\n");
 }
