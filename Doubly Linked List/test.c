@@ -1,9 +1,11 @@
 #include<stdio.h>
 #include "dllSpec.h"
 
+
+
 typedef struct test{
-	dllNode_t node;
 	char data;
+	dllNode_t node;
 }testNode;
 
 
@@ -19,19 +21,20 @@ testNode testNode_new()
 
 int printf_all_list(dllNode_t *head)
 {
-	printf(">>>");
+	printf(">>> ");
 	dllNode_t *current = head;
 	while(current->next != NULL )
 	{
 		current = current->next;
-		printf("%c " , ((testNode *)current)->data);
+		printf("%c " , return_to_user_struct_pointer(testNode, node, current)->data);
 	}
 	printf("end\n");
 }
 
 int printf_node_data(dllNode_t *current)
 {
-	printf("%c\n", ((testNode *)current)->data);
+	printf("%c\n", return_to_user_struct_pointer(testNode, node, current)->data);
+
 }
 
 
@@ -64,55 +67,54 @@ int main()
 	testNode f = testNode_new();
 	f.data = 'f';
 	printf("\n");
-
-
+	
 	printf("4.Test DLL_get_tail when list_one is empty\n");
 	dllNode_t *tail = DLL_get_tail(list_one);
 	printf("\n");
 
 	printf("5.Use DLL_add_first insert z as first node of list_one\n");
-	DLL_add_first((dllNode_t *)&z, list_one);
+	DLL_add_first(&z.node, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 
 	printf("6.Use DLL_addto_next insert a after z\n");
-        DLL_addto_next((dllNode_t *)&a, (dllNode_t *)&z);
+        DLL_addto_next(&a.node, &z.node);
 	printf_all_list(list_one);
 	printf("\n");
 
 	printf("7.Use DLL_addto_next insert b after a\n");
-	DLL_addto_next((dllNode_t *)&b, (dllNode_t *)&a);
+	DLL_addto_next(&b.node, &a.node);
 	printf_all_list(list_one);
 	printf("\n");
 
 	printf("8.Use DLL_addto_next insert c after a\n");
-	DLL_addto_next((dllNode_t *)&c, (dllNode_t *)&a);
+	DLL_addto_next(&c.node, &a.node);
 	printf_all_list(list_one);
 	printf("\n");
 	
 	printf("9.Use DLL_addto_prev insert d before b\n");
-	DLL_addto_prev((dllNode_t *)&d, (dllNode_t *)&b);
+	DLL_addto_prev(&d.node, &b.node);
 	printf_all_list(list_one);
 	printf("\n");
 	
 	printf("10.Use DLL_addto_prev insert d before head of list_one\n");
-	DLL_addto_prev((dllNode_t *)&d, list_one);
+	DLL_addto_prev(&d.node, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 	
 	printf("11.Use DLL_add_first insert e as first of list_one\n");
-	DLL_add_first((dllNode_t *)&e, list_one);
+	DLL_add_first(&e.node, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 	
 	printf("12.Test DLL_get_tail  when list_one not empty\n");
 	tail = DLL_get_tail(list_one);
-	printf(">>>The tail is %c\n", ((testNode *)tail)->data);
+	printf(">>> The tail is %c\n", ((testNode *)tail)->data);
 	printf_all_list(list_one);
 	printf("\n");
 	
 	printf("13.Using DLL_add_tail insert f as tail of list_one\n");
-	DLL_add_tail((dllNode_t *)&f, list_one);
+	DLL_add_tail(&f.node, list_one);
 	printf_all_list(list_one);
 	printf("\n");
 
@@ -125,24 +127,24 @@ int main()
 	printf("\n");
 	
 	printf("16.get the previous node of c with DLL_prev_node\n");
-	printf(">>>The previous node of c is ");
-	printf_node_data(DLL_prev_node((dllNode_t *)&c));
+	printf(">>> The previous node of c is ");
+	printf_node_data(DLL_prev_node(&c.node));
 	printf_all_list(list_one);
 	printf("\n");
 	
 	printf("17.Get the next node of c with DLL_next_node\n");
-	printf(">>>The next node of c is ");
-	printf_node_data(DLL_next_node((dllNode_t *)&c));
+	printf(">>> The next node of c is ");
+	printf_node_data(DLL_next_node(&c.node));
 	printf_all_list(list_one);
 	printf("\n");
 
 	printf("18. Use DLL_delete remove c from list_one\n");
-	DLL_delete((dllNode_t *)&c);
+	DLL_delete(&c.node);
 	printf_all_list(list_one);
 	printf("\n");
 	
 	printf("19.Use DLL_delete remove f from list_one\n");
-	DLL_delete((dllNode_t *)&f);
+	DLL_delete(&f.node);
 	printf_all_list(list_one);
 	printf("\n");
 	
@@ -166,13 +168,13 @@ int main()
 	testNode m = testNode_new();
 	m.data = 'm';
 
-	DLL_add_tail((dllNode_t *)&g, list_two);
-	DLL_add_tail((dllNode_t *)&h, list_two);
-	DLL_add_tail((dllNode_t *)&i, list_two);
-	DLL_add_tail((dllNode_t *)&j, list_two);
-	DLL_add_tail((dllNode_t *)&k, list_two);
-	DLL_add_tail((dllNode_t *)&l, list_two);
-	DLL_add_tail((dllNode_t *)&m, list_two);
+	DLL_add_tail(&g.node, list_two);
+	DLL_add_tail(&h.node, list_two);
+	DLL_add_tail(&i.node, list_two);
+	DLL_add_tail(&j.node, list_two);
+	DLL_add_tail(&k.node, list_two);
+	DLL_add_tail(&l.node, list_two);
+	DLL_add_tail(&m.node, list_two);
 
 	printf_all_list(list_two);
 	printf("\n");

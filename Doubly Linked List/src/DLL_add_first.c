@@ -6,7 +6,7 @@ void DLL_add_first(dllNode_t * new_node, dllNode_t * head)
 	{
 		head->next = new_node;
 		new_node->prev = head;
-		printf(">>>Add to empty list (response from DLL_add_first)\n");
+		printf(">>> Add to empty list (response from DLL_add_first)\n");
 	}
 	else
 	{
@@ -14,7 +14,7 @@ void DLL_add_first(dllNode_t * new_node, dllNode_t * head)
 		head->next->prev = new_node;
 		head->next = new_node;
 		new_node->prev = head;
-		printf(">>>Add to non-empty list (response from DLL_add_first)\n");
+		printf(">>> Add to non-empty list (response from DLL_add_first)\n");
 			
 	}
 }

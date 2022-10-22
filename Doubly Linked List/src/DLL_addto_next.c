@@ -9,5 +9,5 @@ void DLL_addto_next(dllNode_t *new_node, dllNode_t *node)
 	new_node->next = node->next;
 	node->next = new_node;
 	new_node->prev = node;
-	printf(">>>Insertion complete (response from DLL_addto_next)\n");
+	printf(">>> Insertion complete (response from DLL_addto_next)\n");
 }

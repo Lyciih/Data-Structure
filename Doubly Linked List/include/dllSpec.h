@@ -38,9 +38,13 @@ dllNode_t * DLL_concate(dllNode_t *srcList, dllNode_t * dstList);//(將srcList �
 
 
 
-//以下是自己加的function
-dllNode_t *DLL_get_tail(dllNode_t *head);//取得list的尾巴
+//-------------以下是自己加的function----------------------------------------------------------------------------------------------------------------------
 
+#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
+
+#define return_to_user_struct_pointer(USER_STRUCT, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT *)((size_t)MEMBER_POINT - offsetof(USER_STRUCT, MEMBER_NAME)))
+
+dllNode_t *DLL_get_tail(dllNode_t *head);//取得list的尾巴
 
 void DLL_free_head(dllNode_t *head);//釋放空的head
 

@@ -9,6 +9,6 @@ unsigned int DLL_num_nodes(const dllNode_t *head)//計算List中有幾個node
 		count++;
 		current = current->next;
 	}
-	printf(">>>There are totally %d nodes (response from DLL_num_nodes )\n", count);
+	printf(">>> There are totally %d nodes (response from DLL_num_nodes )\n", count);
 	return count;
 }
