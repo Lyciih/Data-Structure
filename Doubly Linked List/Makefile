@@ -27,14 +27,14 @@ INCLUDE = -I ./include
 all: test
 
 test: libdll.a ${TEST} 
-	gcc -o test  $(INCLUDE) test.o -L . -l _double_linked_list  
+	gcc -o test  $(INCLUDE) test.o -L . -l double_linked_list  
 
 
 %.o : %.c
 	gcc -c -o $@ $< $(INCLUDE)
 
 %.a : ${OBJS}
-	ar -rcs lib_double_linked_list.a  $^ 
+	ar -rcs libdouble_linked_list.a  $^ 
 
 %.o : ./src/%.c 
 	gcc -c -o $@ $< $(INCLUDE)

@@ -34,7 +34,6 @@ int printf_all_list(dllNode_t *head)
 int printf_node_data(dllNode_t *current)
 {
 	printf("%c\n", return_to_user_struct_pointer(testNode, node, current)->data);
-
 }
 
 
