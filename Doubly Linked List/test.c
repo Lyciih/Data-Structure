@@ -19,7 +19,7 @@ testNode testNode_new()
 
 
 
-int printf_all_list(dllNode_t *head)
+void printf_all_list(dllNode_t *head)
 {
 	printf(">>> ");
 	dllNode_t *current = head;
@@ -31,7 +31,7 @@ int printf_all_list(dllNode_t *head)
 	printf("end\n");
 }
 
-int printf_node_data(dllNode_t *current)
+void printf_node_data(dllNode_t *current)
 {
 	printf("%c\n", return_to_user_struct_pointer(testNode, node, current)->data);
 }
@@ -186,4 +186,5 @@ int main()
 	printf("23.Use DLL_num_nodes to calculate how many nodes there are now in list_one\n");
 	DLL_num_nodes(list_one);
 	printf("\n");
+	DLL_free_head(list_one);
 }

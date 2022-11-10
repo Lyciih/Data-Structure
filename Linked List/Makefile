@@ -1,18 +1,17 @@
 
 
 SRCS_C = \
-	DLL_add_first.c \
-	DLL_add_tail.c \
-	DLL_addto_next.c \
-	DLL_addto_prev.c \
-	DLL_concate.c \
-	DLL_delete.c \
-	DLL_free_head.c \
-	DLL_get_tail.c \
-	DLL_init.c \
-	DLL_isEmpty.c \
-	DLL_next_node.c \
-	DLL_num_nodes.c \
+	LL_add_first.c \
+	LL_add_tail.c \
+	LL_addto_next.c \
+	LL_concate.c \
+	LL_delete_next.c \
+	LL_free_head.c \
+	LL_get_tail.c \
+	LL_init.c \
+	LL_isEmpty.c \
+	LL_next_node.c \
+	LL_num_nodes.c \
 	
 
 TEST_C = \
@@ -26,15 +25,15 @@ INCLUDE = -I ./include
 
 all: test
 
-test: libdll.a ${TEST} 
-	gcc -o test  $(INCLUDE) test.o -L . -l double_linked_list  
+test: liblinked_list.a ${TEST} 
+	gcc -o test  $(INCLUDE) test.o -L . -l linked_list  
 
 
 %.o : %.c
 	gcc -c -o $@ $< $(INCLUDE)
 
 %.a : ${OBJS}
-	ar -rcs libdouble_linked_list.a  $^ 
+	ar -rcs liblinked_list.a  $^ 
 
 %.o : ./src/%.c 
 	gcc -c -o $@ $< $(INCLUDE)

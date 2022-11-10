@@ -26,7 +26,7 @@ INCLUDE = -I ./include
 
 all: test
 
-test: libdll.a ${TEST} 
+test: libdouble_linked_list.a ${TEST} 
 	gcc -o test  $(INCLUDE) test.o -L . -l double_linked_list  
 
 
