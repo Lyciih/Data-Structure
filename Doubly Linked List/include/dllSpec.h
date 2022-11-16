@@ -5,9 +5,9 @@
 #include<stdlib.h>
 #include<string.h>
 
-typedef struct node {
-    struct node *prev;
-    struct node *next;
+typedef struct dllNode_t {
+    struct dllNode_t *prev;
+    struct dllNode_t *next;
 } dllNode_t;
 
 
