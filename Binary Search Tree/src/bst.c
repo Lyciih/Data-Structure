@@ -49,16 +49,16 @@ void insert_child_node(btreeNode_t * insert_element, btreeNode_t * root, int(*co
 }
 
 
-void insertNode(btreeNode_t * insert_element, btreeNode_t ** head, int(*compare)(btreeNode_t * insert_element, btreeNode_t * in_tree_element))
+void insertNode(btreeNode_t * insert_element, btreeNode_t ** root, int(*compare)(btreeNode_t * insert_element, btreeNode_t * in_tree_element))
 {
 
-    if((btreeNode_t *)*head == NULL)
+    if((btreeNode_t *)*root == NULL)
     {
-        *head = insert_element;
+        *root = insert_element;
     }
     else
     {
-        insert_child_node(insert_element, *head, compare);
+        insert_child_node(insert_element, *root, compare);
     }
 }
 
@@ -117,21 +117,20 @@ btreeNode_t * find_child_node(int key, btreeNode_t * root, int(*compare)(int key
 
 
 
-btreeNode_t * findNode(int key, btreeNode_t * head, int(*compare)(int key, btreeNode_t * in_tree_element))
+btreeNode_t * findNode(int key, btreeNode_t * root, int(*compare)(int key, btreeNode_t * in_tree_element))
 {
-    if(head == NULL)
+    if(root == NULL)
     {
         printf("no tree\n");
         return NULL;
     }
 
-    if(compare(key, head) == 2)
+    if(compare(key, root) == 2)
     {
-        printf("is root");
-        return head;
+        return root;
     }
 
-    return find_child_node(key, head, compare);
+    return find_child_node(key, root, compare);
 }
 
 
@@ -280,47 +279,71 @@ void delete_child_node(btreeNode_t * delete_node, btreeNode_t * root, int(*compa
 }
 
 
-void delete_node(btreeNode_t * delete_node, btreeNode_t ** head, int(*compare)(btreeNode_t * delete_node, btreeNode_t * in_tree_element))
+void deleteNode(btreeNode_t * delete_node, btreeNode_t ** root, int(*compare)(btreeNode_t * delete_node, btreeNode_t * in_tree_element))
 {
     btreeNode_t * temp;
 
-    if(*head == NULL)
+    if(*root == NULL)
     {
         printf("no tree\n");
     }
 
-    if(compare(delete_node, *head) == 2)
+    if(compare(delete_node, *root) == 2)
     {
-        if((*head)->left == NULL && (*head)->right == NULL)
+        if((*root)->left == NULL && (*root)->right == NULL)
         {
-            *head = NULL;
+            *root = NULL;
         }
 
-        else if((*head)->left != NULL && (*head)->right == NULL)
+        else if((*root)->left != NULL && (*root)->right == NULL)
         {
-            temp = (*head)->left;
-            (*head)->left = NULL;
-            *head = temp;
+            temp = (*root)->left;
+            (*root)->left = NULL;
+            *root = temp;
         }
 
-        else if((*head)->left == NULL && (*head)->right != NULL)
+        else if((*root)->left == NULL && (*root)->right != NULL)
         {
-            temp = (*head)->right;
-            (*head)->right = NULL;
-            *head = temp;
+            temp = (*root)->right;
+            (*root)->right = NULL;
+            *root = temp;
         }
 
-        else if((*head)->left != NULL && (*head)->right != NULL)
+        else if((*root)->left != NULL && (*root)->right != NULL)
         {
-            temp = findMinNode((*head)->right);
-            delete_child_node(findMinNode((*head)->right), *head, compare);
-            temp->left = (*head)->left;
-            temp->right = (*head)->right;
-            *head = temp;
+            temp = findMinNode((*root)->right);
+            delete_child_node(findMinNode((*root)->right), *root, compare);
+            temp->left = (*root)->left;
+            temp->right = (*root)->right;
+            *root = temp;
         }
     }
     else
     {
-        delete_child_node(delete_node, *head, compare);
+        delete_child_node(delete_node, *root, compare);
     }
+}
+
+
+void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root))
+{
+    if(root == NULL)
+    {
+        printf("no node\n");
+    }
+    else
+    {
+        if(root->left != NULL)
+        {
+            inOrder(root->left, print);
+        }
+
+        print(root);
+
+        if(root->right != NULL)
+        {
+            inOrder(root->right, print);
+        }
+    }
+
 }

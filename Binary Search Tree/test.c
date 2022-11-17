@@ -4,6 +4,7 @@
 //測試用的結構
 typedef struct test_tree_node{
 	char data;
+	char *name;
 	btreeNode_t node;
 }test_tree_node;
 
@@ -50,6 +51,11 @@ void printf_tree(btreeNode_t * root)
 	}
 }
 
+void print_data(btreeNode_t * root)
+{
+	printf("%c ", return_to_user_struct_pointer(test_tree_node, node, root)->data);
+}
+
 
 
 int main()
@@ -61,22 +67,27 @@ int main()
 	test_tree_node root;
 	Bst_init(&root.node);	
 	root.data = '7';
+	root.name = "David";
 
 	test_tree_node a;
 	Bst_init(&a.node);
 	a.data = '3';
+	a.name = "Kent";
 
 	test_tree_node b;
 	Bst_init(&b.node);
 	b.data = '2';
+	b.name = "John";
 
 	test_tree_node c;
 	Bst_init(&c.node);
 	c.data = '8';
+	c.name = "Alice";
 
 	test_tree_node d;
 	Bst_init(&d.node);
 	d.data = '4';
+	d.name = "Alisa";
 	
 	printf("%c\n", root.data);
 
@@ -96,47 +107,53 @@ int main()
 	printf_tree(&a.node);
 	printf("\n");
 
+	inOrder(tree_one, print_data);
+
+	printf("\n");
+
 	test = findNode(2, tree_one, compare_key);
 
 	if(test != NULL)
 	{
-		printf("%c\n", return_to_user_struct_pointer(test_tree_node, node, test)->data);
+		printf("%s\n", return_to_user_struct_pointer(test_tree_node, node, test)->name);
 	}
 
 	test = findNode(7, tree_one, compare_key);
 
 	if(test != NULL)
 	{
-		printf("%c\n", return_to_user_struct_pointer(test_tree_node, node, test)->data);
+		printf("%s\n", return_to_user_struct_pointer(test_tree_node, node, test)->name);
 	}
 
 	test = findNode(3, tree_one, compare_key);
 
 	if(test != NULL)
 	{
-		printf("%c\n", return_to_user_struct_pointer(test_tree_node, node, test)->data);
+		printf("%s\n", return_to_user_struct_pointer(test_tree_node, node, test)->name);
 	}
 
 	test = findNode(8, tree_one, compare_key);
 
 	if(test != NULL)
 	{
-		printf("%c\n", return_to_user_struct_pointer(test_tree_node, node, test)->data);
+		printf("%s\n", return_to_user_struct_pointer(test_tree_node, node, test)->name);
 	}
 
-	delete_node(&a.node, &tree_one, compare_int);
+	deleteNode(&a.node, &tree_one, compare_int);
 	printf_tree(tree_one);
 	printf("\n");
 
-	delete_node(&root.node, &tree_one, compare_int);
+	deleteNode(&root.node, &tree_one, compare_int);
 	printf_tree(tree_one);
 	printf("\n");
 
-	delete_node(&c.node, &tree_one, compare_int);
+	deleteNode(&c.node, &tree_one, compare_int);
 	printf_tree(tree_one);
 	printf("\n");
 
 	printf_tree(&b.node);
 	printf("\n");
+
+	inOrder(tree_one, print_data);
 
 }
