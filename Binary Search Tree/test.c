@@ -56,6 +56,14 @@ void print_data(btreeNode_t * root)
 	printf("%c ", return_to_user_struct_pointer(test_tree_node, node, root)->data);
 }
 
+btreeNode_t * copy_test_node(btreeNode_t * root)
+{
+	test_tree_node * new_node = (test_tree_node *)malloc(sizeof(test_tree_node));
+	*new_node = *return_to_user_struct_pointer(test_tree_node, node, root);
+	Bst_init(&new_node->node);
+	return &new_node->node;
+}
+
 
 
 int main()
@@ -108,7 +116,13 @@ int main()
 	printf("\n");
 
 	inOrder(tree_one, print_data);
+	printf("\n");
 
+	btreeNode_t * tree_two = treeCopy(tree_one, copy_test_node);
+	printf_tree(tree_two);
+	printf("\n");
+
+	inOrder(tree_two, print_data);
 	printf("\n");
 
 	test = findNode(2, tree_one, compare_key);

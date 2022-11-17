@@ -347,3 +347,27 @@ void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root))
     }
 
 }
+
+btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * root))
+{
+    if(root != NULL)
+    {
+        btreeNode_t * new_root = copy(root);
+
+        if(root->left != NULL)
+        {
+            new_root->left = treeCopy(root->left, copy);
+        }
+
+        if(root->right != NULL)
+        {
+            new_root->right = treeCopy(root->right, copy);
+        }
+
+        return new_root;
+    }
+    else
+    {
+        return NULL;
+    }
+}

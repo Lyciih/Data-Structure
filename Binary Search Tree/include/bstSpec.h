@@ -29,6 +29,8 @@ void deleteNode(btreeNode_t * delete_node, btreeNode_t ** root, int(*compare)(bt
 
 void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root));
 
+btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * root));
+
 
 
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
