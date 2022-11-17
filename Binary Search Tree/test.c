@@ -69,6 +69,10 @@ int main()
 	test_tree_node c;
 	Bst_init(&c.node);
 	c.data = '8';
+
+	test_tree_node d;
+	Bst_init(&d.node);
+	d.data = '4';
 	
 	printf("%c\n", root.data);
 
@@ -81,6 +85,7 @@ int main()
 	insertNode(&a.node, tree_one, compare_int);
 	insertNode(&b.node, tree_one, compare_int);
 	insertNode(&c.node, tree_one, compare_int);
+	insertNode(&d.node, tree_one, compare_int);
 
 	printf_tree(tree_one->root);
 	printf("\n");
