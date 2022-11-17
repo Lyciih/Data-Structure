@@ -1,14 +1,6 @@
 #include"bstSpec.h"
 
 
-bst_tree_head_t * bst_head()
-{
-    bst_tree_head_t * temp = (bst_tree_head_t *)malloc(sizeof(bst_tree_head_t));
-    temp->root = NULL;
-}
-
-
-
 
 void Bst_init(btreeNode_t * node)
 {
@@ -57,15 +49,16 @@ void insert_child_node(btreeNode_t * insert_element, btreeNode_t * root, int(*co
 }
 
 
-void insertNode(btreeNode_t * insert_element, bst_tree_head_t * head, int(*compare)(btreeNode_t * insert_element, btreeNode_t * in_tree_element))
+void insertNode(btreeNode_t * insert_element, btreeNode_t ** head, int(*compare)(btreeNode_t * insert_element, btreeNode_t * in_tree_element))
 {
-    if(head->root == NULL)
+
+    if((btreeNode_t *)*head == NULL)
     {
-        head->root = insert_element;
+        *head = insert_element;
     }
     else
     {
-        insert_child_node(insert_element, head->root, compare);
+        insert_child_node(insert_element, *head, compare);
     }
 }
 
@@ -124,21 +117,21 @@ btreeNode_t * find_child_node(int key, btreeNode_t * root, int(*compare)(int key
 
 
 
-btreeNode_t * findNode(int key, bst_tree_head_t * head, int(*compare)(int key, btreeNode_t * in_tree_element))
+btreeNode_t * findNode(int key, btreeNode_t * head, int(*compare)(int key, btreeNode_t * in_tree_element))
 {
-    if(head->root == NULL)
+    if(head == NULL)
     {
         printf("no tree\n");
         return NULL;
     }
 
-    if(compare(key, head->root) == 2)
+    if(compare(key, head) == 2)
     {
         printf("is root");
-        return head->root;
+        return head;
     }
 
-    return find_child_node(key, head->root, compare);
+    return find_child_node(key, head, compare);
 }
 
 
@@ -287,47 +280,47 @@ void delete_child_node(btreeNode_t * delete_node, btreeNode_t * root, int(*compa
 }
 
 
-void delete_node(btreeNode_t * delete_node, bst_tree_head_t * head, int(*compare)(btreeNode_t * delete_node, btreeNode_t * in_tree_element))
+void delete_node(btreeNode_t * delete_node, btreeNode_t ** head, int(*compare)(btreeNode_t * delete_node, btreeNode_t * in_tree_element))
 {
     btreeNode_t * temp;
 
-    if(head->root == NULL)
+    if(*head == NULL)
     {
         printf("no tree\n");
     }
 
-    if(compare(delete_node, head->root) == 2)
+    if(compare(delete_node, *head) == 2)
     {
-        if(head->root->left == NULL && head->root->right == NULL)
+        if((*head)->left == NULL && (*head)->right == NULL)
         {
-            head->root = NULL;
+            *head = NULL;
         }
 
-        else if(head->root->left != NULL && head->root->right == NULL)
+        else if((*head)->left != NULL && (*head)->right == NULL)
         {
-            temp = head->root->left;
-            head->root->left = NULL;
-            head->root = temp;
+            temp = (*head)->left;
+            (*head)->left = NULL;
+            *head = temp;
         }
 
-        else if(head->root->left == NULL && head->root->right != NULL)
+        else if((*head)->left == NULL && (*head)->right != NULL)
         {
-            temp = head->root->right;
-            head->root->right = NULL;
-            head->root = temp;
+            temp = (*head)->right;
+            (*head)->right = NULL;
+            *head = temp;
         }
 
-        else if(head->root->left != NULL && head->root->right != NULL)
+        else if((*head)->left != NULL && (*head)->right != NULL)
         {
-            temp = findMinNode(head->root->right);
-            delete_child_node(findMinNode(head->root->right), head->root, compare);
-            temp->left = head->root->left;
-            temp->right = head->root->right;
-            head->root = temp;
+            temp = findMinNode((*head)->right);
+            delete_child_node(findMinNode((*head)->right), *head, compare);
+            temp->left = (*head)->left;
+            temp->right = (*head)->right;
+            *head = temp;
         }
     }
     else
     {
-        delete_child_node(delete_node, head->root, compare);
+        delete_child_node(delete_node, *head, compare);
     }
 }

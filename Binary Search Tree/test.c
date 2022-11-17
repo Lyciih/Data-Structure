@@ -26,7 +26,10 @@ int compare_key(int key, btreeNode_t * in_tree_element)
 
 void printf_tree(btreeNode_t * root)
 {
-	printf(" %c\n", return_to_user_struct_pointer(test_tree_node, node, root)->data);
+	if(root != NULL)
+	{
+		printf(" %c\n", return_to_user_struct_pointer(test_tree_node, node, root)->data);
+	}
 
 	if(root->left != NULL)
 	{
@@ -51,11 +54,12 @@ void printf_tree(btreeNode_t * root)
 
 int main()
 {
-	bst_tree_head_t * tree_one = bst_head();
+	 
+	btreeNode_t * tree_one = NULL;
 	btreeNode_t * test = NULL;
+
 	test_tree_node root;
-	Bst_init(&root.node);
-	
+	Bst_init(&root.node);	
 	root.data = '7';
 
 	test_tree_node a;
@@ -81,13 +85,13 @@ int main()
 	printf("%c\n", b.data);
 
 
-	insertNode(&root.node, tree_one, compare_int);
-	insertNode(&a.node, tree_one, compare_int);
-	insertNode(&b.node, tree_one, compare_int);
-	insertNode(&c.node, tree_one, compare_int);
-	insertNode(&d.node, tree_one, compare_int);
+	insertNode(&root.node, &tree_one, compare_int);
+	insertNode(&a.node, &tree_one, compare_int);
+	insertNode(&b.node, &tree_one, compare_int);
+	insertNode(&c.node, &tree_one, compare_int);
+	insertNode(&d.node, &tree_one, compare_int);
 
-	printf_tree(tree_one->root);
+	printf_tree(tree_one);
 	printf("\n");
 	printf_tree(&a.node);
 	printf("\n");
@@ -120,11 +124,19 @@ int main()
 		printf("%c\n", return_to_user_struct_pointer(test_tree_node, node, test)->data);
 	}
 
-	delete_node(&a.node, tree_one, compare_int);
-	printf_tree(tree_one->root);
+	delete_node(&a.node, &tree_one, compare_int);
+	printf_tree(tree_one);
 	printf("\n");
 
-	//delete_node(&b.node, tree_one, compare_int);
-	//printf_tree(&a.node);
+	delete_node(&root.node, &tree_one, compare_int);
+	printf_tree(tree_one);
+	printf("\n");
+
+	delete_node(&c.node, &tree_one, compare_int);
+	printf_tree(tree_one);
+	printf("\n");
+
+	printf_tree(&b.node);
+	printf("\n");
 
 }
