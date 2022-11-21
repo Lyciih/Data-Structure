@@ -2,7 +2,10 @@ CFLAG = -I include -Wall
 
 
 SRCS_C = \
-	bst.c \
+	src/bst.c \
+	src/bst_delete.c\
+	src/bst_find.c\
+	src/bst_insert.c\
 
 	
 TEST_C = \
@@ -15,7 +18,7 @@ TEST = $(TEST_C:.c=.o)
 
 all: test
 
-test: test.c  binary_search_tree.a
+test: $(OBJS) test.c  binary_search_tree.a
 	gcc $(CFLAG) -o test $^ 
 
 
@@ -24,14 +27,14 @@ test: test.c  binary_search_tree.a
 	ar -rcs binary_search_tree.a  $^ 
 
 
-%.o : src/%.c
+src/%.o : src/%.c
 	gcc  -I include -c -o $@ $< 
 
 
 .PHONY: clean run
 
 clean:
-	rm -f *.exe *.a *.out *.elf
+	rm -f *.exe *.a *.out *.elf src/*.o
 
 run:
 	./test
