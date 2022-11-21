@@ -371,3 +371,25 @@ btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * ro
         return NULL;
     }
 }
+
+int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNode_t * root_A, btreeNode_t * root_B))
+{
+    if(root_A == NULL && root_B == NULL)
+    {
+        return 1;
+    }
+    else if(root_A != NULL && root_B != NULL)
+    {
+        if(compare(root_A, root_B))
+        {
+            if(treeEqual(root_A->left, root_B->left, compare))
+            {
+                if(treeEqual(root_A->right, root_B->right, compare))
+                {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}

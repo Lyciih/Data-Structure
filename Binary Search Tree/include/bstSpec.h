@@ -31,6 +31,8 @@ void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root));
 
 btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * root));
 
+int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNode_t * root_A, btreeNode_t * root_B));
+
 
 
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
