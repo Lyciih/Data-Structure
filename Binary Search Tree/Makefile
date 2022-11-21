@@ -31,7 +31,7 @@ test: test.c  binary_search_tree.a
 .PHONY: clean run
 
 clean:
-	rm *.exe *.a
+	rm -f *.exe *.a *.out *.elf
 
 run:
 	./test
