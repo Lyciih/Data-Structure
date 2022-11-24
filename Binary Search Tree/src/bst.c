@@ -114,3 +114,28 @@ int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNod
     }
     return 0;
 }
+
+
+int count_tree_level(btreeNode_t * root)
+{
+    int temp_left = 0;
+    int temp_right = 0;
+    if(root->left != NULL)
+    {
+        temp_left += count_tree_level(root->left) + 1;
+    }
+
+    if(root->right != NULL)
+    {
+        temp_right += count_tree_level(root->right) + 1;
+    }
+    
+    if(temp_left < temp_right)
+    {
+        return temp_right;
+    }
+    else
+    {
+        return temp_left;
+    }
+}

@@ -6,6 +6,7 @@ SRCS_C = \
 	src/bst_delete.c\
 	src/bst_find.c\
 	src/bst_insert.c\
+	src/printf_tree.c\
 
 	
 TEST_C = \

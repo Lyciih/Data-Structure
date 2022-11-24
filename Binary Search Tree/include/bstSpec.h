@@ -3,6 +3,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 
 typedef struct node {
@@ -29,6 +30,14 @@ btreeNode_t * findMaxNode(btreeNode_t * root);
 btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * root));
 
 int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNode_t * root_A, btreeNode_t * root_B));
+
+int count_tree_level(btreeNode_t * root);
+
+void tree_level_to_queue(btreeNode_t * root, btreeNode_t * queue[]);
+
+void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member));
+
+
 
 //-------  巨集  -------//
 
