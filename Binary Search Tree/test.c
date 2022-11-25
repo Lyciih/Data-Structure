@@ -286,37 +286,37 @@ int main()
 	o_test.name = " ";
 
 	btreeNode_t * tree_three = NULL;
-	
+
 	printf("\n");
-	printf("insert a_test to tree_one\n");
+	printf("insert a_test to tree_three\n");
 	insertNode(&a_test.node, &tree_three, compare_int);
-	printf("insert b_test to tree_one\n");
+	printf("insert b_test to tree_three\n");
 	insertNode(&b_test.node, &tree_three, compare_int);
-	printf("insert c_test to tree_one\n");
+	printf("insert c_test to tree_three\n");
 	insertNode(&c_test.node, &tree_three, compare_int);
-	printf("insert d_test to tree_one\n");
+	printf("insert d_test to tree_three\n");
 	insertNode(&d_test.node, &tree_three, compare_int);
-	printf("insert e_test to tree_one\n");
+	printf("insert e_test to tree_three\n");
 	insertNode(&e_test.node, &tree_three, compare_int);
-	printf("insert f_test to tree_one\n");
+	printf("insert f_test to tree_three\n");
 	insertNode(&f_test.node, &tree_three, compare_int);
-	printf("insert g_test to tree_one\n");
+	printf("insert g_test to tree_three\n");
 	insertNode(&g_test.node, &tree_three, compare_int);
-	printf("insert h_test to tree_one\n");
+	printf("insert h_test to tree_three\n");
 	insertNode(&h_test.node, &tree_three, compare_int);
-	printf("insert i_test to tree_one\n");
+	printf("insert i_test to tree_three\n");
 	insertNode(&i_test.node, &tree_three, compare_int);
-	printf("insert j_test to tree_one\n");
+	printf("insert j_test to tree_three\n");
 	insertNode(&j_test.node, &tree_three, compare_int);
-	printf("insert k_test to tree_one\n");
+	printf("insert k_test to tree_three\n");
 	insertNode(&k_test.node, &tree_three, compare_int);
-	printf("insert l_test to tree_one\n");
+	printf("insert l_test to tree_three\n");
 	insertNode(&l_test.node, &tree_three, compare_int);
-	printf("insert m_test to tree_one\n");
+	printf("insert m_test to tree_three\n");
 	insertNode(&m_test.node, &tree_three, compare_int);
-	printf("insert n_test to tree_one\n");
+	printf("insert n_test to tree_three\n");
 	insertNode(&n_test.node, &tree_three, compare_int);
-	printf("insert o_test to tree_one\n");
+	printf("insert o_test to tree_three\n");
 	insertNode(&o_test.node, &tree_three, compare_int);
 	printf("\n");
 
@@ -325,9 +325,41 @@ int main()
 	printf("\n");
 
 	printf("\n");
-	printf("print tree_one level : ");
+	printf("print tree_three level : ");
 	printf("%d\n", count_tree_level(tree_three));
+	printf("print tree_three : ");
 	printf_tree(tree_three, get_data);
+	printf("\n");
+
+	printf("\n");
+	printf("delete 10 in tree_three : \n");
+	deleteNode(&a_test.node, &tree_three, compare_int);
+	printf_tree(tree_three, get_data);
+	printf("\n");
+
+	printf("\n");
+	printf("delete 7 in tree_three : \n");
+	deleteNode(&b_test.node, &tree_three, compare_int);
+	printf_tree(tree_three, get_data);
+	printf("\n");
+
+	printf("\n");
+	printf("delete 2 in tree_three : \n");
+	deleteNode(&i_test.node, &tree_three, compare_int);
+	printf_tree(tree_three, get_data);
+	printf("\n");
+
+	printf("\n");
+	printf("insert 17 in tree_three : \n");
+	insertNode(&f_test.node, &tree_three, compare_int);
+	printf_tree(tree_three, get_data);
+	printf("\n");
+
+	printf("\n");
+	printf("delete 16 in tree_three : \n");
+	deleteNode(&c_test.node, &tree_three, compare_int);
+	printf_tree(tree_three, get_data);
+	printf("\n");
 
 
 

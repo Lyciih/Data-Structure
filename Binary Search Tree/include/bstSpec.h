@@ -21,6 +21,10 @@ void deleteNode(btreeNode_t * delete_node, btreeNode_t ** root, int(*compare)(bt
 
 void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root));
 
+void tree_level_to_queue(btreeNode_t * root, btreeNode_t * queue[]);
+
+void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member));
+
 btreeNode_t * findNode(int key, btreeNode_t * root, int(*compare)(int key, btreeNode_t * in_tree_element));
 
 btreeNode_t * findMinNode(btreeNode_t * root);
@@ -32,11 +36,6 @@ btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * ro
 int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNode_t * root_A, btreeNode_t * root_B));
 
 int count_tree_level(btreeNode_t * root);
-
-void tree_level_to_queue(btreeNode_t * root, btreeNode_t * queue[]);
-
-void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member));
-
 
 
 //-------  巨集  -------//

@@ -111,11 +111,6 @@ void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member)
 	tree_level_to_queue(root, queue);
 
 
-	
-
-	
-	
-
 	//紀錄每一個level需要列印的行數
 	int step[level];
 	for(int i = 0 ; i < level ; i++)
