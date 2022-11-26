@@ -19,7 +19,7 @@ TEST = $(TEST_C:.c=.o)
 
 all: test
 
-test: $(OBJS) test.c  binary_search_tree.a
+test: test.c  binary_search_tree.a
 	gcc $(CFLAG) -o test $^ 
 
 

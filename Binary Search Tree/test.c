@@ -182,6 +182,37 @@ int main()
 
 	printf("\n");
 
+	printf("find minimum node in tree_one : ");
+	printf("%d\n", return_to_user_struct_pointer(test_tree_node, node, findMinNode(tree_one))->data);
+	
+	printf("\n");
+
+
+	printf("find maximum node in tree_one : ");
+	printf("%d\n", return_to_user_struct_pointer(test_tree_node, node, findMaxNode(tree_one))->data);
+	
+	printf("\n");
+
+	printf("print level order of tree_one : ");
+	btreeNode_t * level_temp[10];
+	for(int i = 0 ; i < 10 ; i++)
+	{
+		level_temp[i] = NULL;
+	}
+
+	tree_level_to_queue(tree_two, level_temp);
+	for(int i = 0 ; i < 10 ; i++ )
+	{
+		if(level_temp[i] != NULL)
+		{
+			printf("%d ", return_to_user_struct_pointer(test_tree_node, node, level_temp[i])->data);
+		}
+	}
+
+	printf("\n");
+	
+	printf("\n");
+
 	printf("print tree_one : \n");
 	printf_tree(tree_one, get_data);
 	printf("\n");
@@ -360,7 +391,6 @@ int main()
 	deleteNode(&c_test.node, &tree_three, compare_int);
 	printf_tree(tree_three, get_data);
 	printf("\n");
-
 
 
 
