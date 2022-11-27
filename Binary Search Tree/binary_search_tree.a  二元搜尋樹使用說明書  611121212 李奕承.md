@@ -25,11 +25,12 @@ typedef struct node {
 - 計算level函數
 
 # <center>使用步驟</center>
-1.帶入標頭檔
+### 1.帶入標頭檔
 ```c
 #include"bstSpec.h"
 ```
-2.在要使用二元搜尋樹的結構中加入 btreeNode_t 成員
+### 2.在要使用二元搜尋樹的結構中加入 btreeNode_t 成員
+例如
 ```c
 typedef struct test_tree_node{
 	int data;
@@ -43,10 +44,10 @@ typedef struct test_tree_node{
 #define return_to_user_struct_pointer(USER_STRUCT, MEMBER_NAME, MEMBER_POINT)
 ```
 USER_STRUCT : 你設計的結構名稱
-MEMBER_NAME:btreeNode_t : 在你的結構中的成員名稱
-MEMBER_POINT:btreeNode_t : 你要用來存取其它成員的 btreeNode_t 指針
+MEMBER_NAME : btreeNode_t 在你的結構中的成員名稱
+MEMBER_POINT : btreeNode_t 你要用來存取其它成員的 btreeNode_t 指針
 
-3.編譯
+### 3.編譯
 - bstSpec.h 要記得放在引用標頭檔的路徑下
 - 編譯時記得加入 binary_search_tree.a
 ```
@@ -55,6 +56,15 @@ gcc -I include -Wall -o test test.c binary_search_tree.a
 
 
 # <center>函數介紹與範例</center>
+## 範例使用的結構
+下面是範例用到的結構，btreeNode_t 是它的第三個成員
+```c
+typedef struct test_tree_node{
+	int data;
+	char *name;
+	btreeNode_t node;
+}test_tree_node;
+```
 ## 初始化函數
 ```c
 void Bst_init(btreeNode_t * node);
@@ -236,7 +246,7 @@ printf_tree(tree_two, get_data);
 int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, 
               int(*compare)(btreeNode_t * root_A, btreeNode_t * root_B));
 ```
-本函數用來判斷兩個二源搜尋樹是否相等。
+本函數用來判斷兩個二元搜尋樹是否相等。
 
 <font color= #0000FF>本函數的參數中有函數指針，需要使用者傳入用來比較兩個節點是否相等的函數。</font>
 以下是範例使用的函數
@@ -296,7 +306,7 @@ int compare_key(int key, btreeNode_t * in_tree_element)
 }
 ```
 
-比對 data 找出並印出該節點的 name 成員
+比對 data 尋找並印出該節點的 name 成員
 ```c
 test = findNode(2, tree_one, compare_key);
 printf("find who's ID is 2 : ");
@@ -371,7 +381,7 @@ find maximum node in tree_one : 8
 void tree_level_to_queue(btreeNode_t * root, btreeNode_t * queue[]);
 ```
 本函數以層序走訪一個二元搜尋樹，並按順序將每個節點的指針存進佇列。
-以下範例以層序走訪 tree_one 並印出佇列
+以下範例以 tree_one 為例並印出佇列
 ```c
 printf("print level order of tree_one : ");
 btreeNode_t * level_temp[10];
