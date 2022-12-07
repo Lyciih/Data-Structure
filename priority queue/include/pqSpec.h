@@ -1,6 +1,8 @@
 #ifndef PQSPEC_H_INCLUDED
 #define PQSPEC_H_INCLUDED
 
+#include<stdio.h>
+
 typedef struct HeapType {
     void * elements;
     int numElementds;
@@ -29,5 +31,7 @@ int IsFull(PQ_t * pq);
 int Enqueue(PQ_t * pq, void * elementA);
 
 void * Dequeue(PQ_t * pq);
+
+void test();
 
 #endif

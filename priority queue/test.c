@@ -2,5 +2,6 @@
 #include"pqSpec.h"
 
 int main() {
-    printf("123");
+    printf("123\n");
+    test();
 }
