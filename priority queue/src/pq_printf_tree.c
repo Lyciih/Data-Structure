@@ -46,6 +46,10 @@ int count_print_times(int pq_tree_level)
 
 void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member))
 {
+    if(pq->heap.numElementds == 0)
+    {
+        return;
+    }
     int level = count_pq_level(pq);
     int width = count_picture_width(level);
     int times = count_print_times(level);

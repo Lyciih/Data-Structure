@@ -43,6 +43,11 @@ char * get_math(void * element)
 
 
 int main() {
+
+    printf("\n");
+    printf("MINIMUM HEAP :\n");
+
+
     student_t node[6] = {
         {"A", 70, 100},
         {"B", 60, 90},
@@ -52,29 +57,58 @@ int main() {
         {"F", 90, 90}
     };
 
-
     PQ_t first_pq;
     createPQ(&first_pq, MINHEAP, sizeof(student_t), 10, compareMath);
 
     for(int i = 0 ; i < 6 ; i++)
     {
 	    Enqueue(&first_pq, &node[i]);
+        pq_printf_tree(&first_pq, get_math);
     }
+
+    printf("\n");
+    printf("DELETE :\n");
+
+    while(Dequeue(&first_pq))
+    {       
+        pq_printf_tree(&first_pq, get_math);
+    }
+
+
+
+//---------------------------------------------------------------
+
+    printf("\n");
+    printf("MAXIMUM HEAP :\n");
+
+
+    student_t node_two[6] = {
+        {"A", 70, 100},
+        {"B", 60, 90},
+        {"C", 80, 95},
+        {"D", 65, 90},
+        {"E", 10, 70},
+        {"F", 90, 90}
+    };
+
+
+    PQ_t second_pq;
+    createPQ(&second_pq, MAXHEAP, sizeof(student_t), 10, compareMath);
+
+    for(int i = 0 ; i < 6 ; i++)
+    {
+	    Enqueue(&second_pq, &node_two[i]);
+        pq_printf_tree(&second_pq, get_math);
+    }
+
+    printf("\n");
+    printf("DELETE :\n");
+
+    while(Dequeue(&second_pq))
+    {
+        pq_printf_tree(&second_pq, get_math);
+    }
+
     
-    
-   // Enqueue(&first_pq, &node[0]);
-
-    printf("%d\n",((student_t *)*((void **)first_pq.heap.elements))->eng);
-
-    //printf("%d\n",first_pq.heap.numElementds);
-
-
-    //Enqueue(&first_pq, &node[1]);
-
-    printf("%d\n",((student_t *)*((void **)first_pq.heap.elements + 1))->eng);
-
-    printf("pq level : %d\n", count_pq_level(&first_pq));
-
-    pq_printf_tree(&first_pq, get_math);
 
 }

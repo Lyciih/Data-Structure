@@ -34,10 +34,10 @@ int Enqueue(PQ_t * pq, void * elementA);
 
 void * Dequeue(PQ_t * pq);
 
-void test();
 
 int count_pq_level(PQ_t * pq);
 
 void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member));
+
 
 #endif

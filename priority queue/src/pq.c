@@ -11,11 +11,89 @@ void createPQ(PQ_t * pq, H_class pqClass, int elementsSize, int maxSize, int (*c
 }
 
 
+int IsEmpty(PQ_t * pq)
+{
+    if(pq->heap.numElementds == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+int IsFull(PQ_t * pq)
+{
+    if(pq->heap.numElementds == pq->maxSize)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+
+
+
+
 int Enqueue(PQ_t * pq, void * elementA)
 {
+    if(IsFull(pq) == 0)
+    {
+        return 1;
+    }
+
     *((void **)(pq->heap.elements) + pq->heap.numElementds) = elementA;
     pq->heap.numElementds++;
-    printf("%d\n", pq->heap.numElementds);
+
+    int location = pq->heap.numElementds;
+
+    void * temp = NULL;
+
+    if(pq->heap.numElementds != 1)
+    {
+        if(pq->pqClass == 0)
+        {
+            while(location != 1)
+            {
+                int top = location / 2;
+                if((pq->compare(*((void **)(pq->heap.elements) + top - 1), elementA)) == 1)
+                {
+                    temp = *((void **)(pq->heap.elements) + top - 1);
+                    *((void **)(pq->heap.elements) + top - 1) = *((void **)(pq->heap.elements) + location - 1);
+                    *((void **)(pq->heap.elements) + location - 1) = temp;
+                    location /= 2;
+                }
+                else
+                {
+                    break;
+                }       
+            }
+        }
+
+        if(pq->pqClass == 1)
+        {
+            while(location != 1)
+            {
+                int top = location / 2;
+                if((pq->compare(*((void **)(pq->heap.elements) + top - 1), elementA)) == -1)
+                {
+                    temp = *((void **)(pq->heap.elements) + top - 1);
+                    *((void **)(pq->heap.elements) + top - 1) = *((void **)(pq->heap.elements) + location - 1);
+                    *((void **)(pq->heap.elements) + location - 1) = temp;
+                    location /= 2;
+                }
+                else
+                {
+                    break;
+                }       
+            }
+        }
+    }
+    return 0;
 }
 
 int count_pq_level(PQ_t * pq)
@@ -41,4 +119,101 @@ int count_pq_level(PQ_t * pq)
             nodes /= 2;
         }
     }
+}
+
+
+
+void * Dequeue(PQ_t * pq)
+{
+
+    if(IsEmpty(pq) == 0)
+    {
+        return NULL;
+    }
+
+    
+
+    void * output = *((void **)(pq->heap.elements));
+
+    *((void **)(pq->heap.elements)) = *((void **)(pq->heap.elements) + pq->heap.numElementds - 1);
+    pq->heap.numElementds--;
+
+
+    int location = 1;
+
+    void * temp = NULL;
+
+    if(pq->heap.numElementds > 1)
+    {
+        if(pq->pqClass == 0)
+        {
+            while(location * 2 <= pq->heap.numElementds)
+            {
+                if((pq->compare(*((void **)(pq->heap.elements) + location - 1), *((void **)(pq->heap.elements) + location * 2 - 1))) == 1)
+                {
+                    temp = *((void **)(pq->heap.elements) + location - 1);
+                    *((void **)(pq->heap.elements) + location - 1) = *((void **)(pq->heap.elements) + location * 2 - 1);
+                    *((void **)(pq->heap.elements) + location * 2 - 1) = temp;
+
+                    int check = location;
+                    location *= 2;
+
+                    if((pq->compare(*((void **)(pq->heap.elements) + check - 1), *((void **)(pq->heap.elements) + check * 2))) == 1)
+                    {
+                        temp = *((void **)(pq->heap.elements) + check - 1);
+                        *((void **)(pq->heap.elements) + check - 1) = *((void **)(pq->heap.elements) + check * 2);
+                        *((void **)(pq->heap.elements) + check * 2) = temp;                       
+                    }
+                }
+                else if((pq->compare(*((void **)(pq->heap.elements) + location - 1), *((void **)(pq->heap.elements) + location * 2))) == 1)
+                {
+                    temp = *((void **)(pq->heap.elements) + location - 1);
+                    *((void **)(pq->heap.elements) + location - 1) = *((void **)(pq->heap.elements) + location * 2);
+                    *((void **)(pq->heap.elements) + location * 2) = temp;
+                    location *= 2;
+                    location++; 
+                }
+                else
+                {
+                    break;
+                }       
+            }
+        }
+
+        if(pq->pqClass == 1)
+        {
+            while(location * 2 <= pq->heap.numElementds)
+            {
+                if((pq->compare(*((void **)(pq->heap.elements) + location - 1), *((void **)(pq->heap.elements) + location * 2 - 1))) == -1)
+                {
+                    temp = *((void **)(pq->heap.elements) + location - 1);
+                    *((void **)(pq->heap.elements) + location - 1) = *((void **)(pq->heap.elements) + location * 2 - 1);
+                    *((void **)(pq->heap.elements) + location * 2 - 1) = temp;
+
+                    int check = location;
+                    location *= 2;
+
+                    if((pq->compare(*((void **)(pq->heap.elements) + check - 1), *((void **)(pq->heap.elements) + check * 2))) == -1)
+                    {
+                        temp = *((void **)(pq->heap.elements) + check - 1);
+                        *((void **)(pq->heap.elements) + check - 1) = *((void **)(pq->heap.elements) + check * 2);
+                        *((void **)(pq->heap.elements) + check * 2) = temp;                       
+                    }
+                }
+                else if((pq->compare(*((void **)(pq->heap.elements) + location - 1), *((void **)(pq->heap.elements) + location * 2))) == -1)
+                {
+                    temp = *((void **)(pq->heap.elements) + location - 1);
+                    *((void **)(pq->heap.elements) + location - 1) = *((void **)(pq->heap.elements) + location * 2);
+                    *((void **)(pq->heap.elements) + location * 2) = temp;
+                    location *= 2;
+                    location++; 
+                }
+                else
+                {
+                    break;
+                }       
+            }
+        }
+    }
+    return output;
 }
