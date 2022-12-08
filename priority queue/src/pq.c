@@ -13,6 +13,7 @@ void createPQ(PQ_t * pq, H_class pqClass, int elementsSize, int maxSize, int (*c
 
 int Enqueue(PQ_t * pq, void * elementA)
 {
-    *((void **)(pq->heap.elements)) = elementA;
-    printf("%d", pq->heap.numElementds);
+    *((void **)(pq->heap.elements) + pq->heap.numElementds) = elementA;
+    pq->heap.numElementds++;
+    printf("%d\n", pq->heap.numElementds);
 }

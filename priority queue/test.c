@@ -35,5 +35,24 @@ int main() {
 
     PQ_t first_pq;
     createPQ(&first_pq, MINHEAP, sizeof(student_t), 10, compareMath);
-    Enqueue(&first_pq, &node[0]);
+
+    for(int i = 0 ; i < 6 ; i++)
+    {
+	    Enqueue(&first_pq, &node[i]);
+    }
+    
+    
+   // Enqueue(&first_pq, &node[0]);
+
+    printf("%d\n",((student_t *)*((void **)first_pq.heap.elements))->eng);
+
+    //printf("%d\n",first_pq.heap.numElementds);
+
+
+    //Enqueue(&first_pq, &node[1]);
+
+    printf("%d\n",((student_t *)*((void **)first_pq.heap.elements + 1))->eng);
+
+
+
 }
