@@ -1,6 +1,7 @@
 
 SRCS_C =\
 	src/pq.c\
+	src/pq_printf_tree.c\
 
 
 OBJS = $(SRCS_C:.c=.o)

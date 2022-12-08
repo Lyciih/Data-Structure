@@ -21,15 +21,35 @@ int compareMath(void * elementA, void * elementB)
 }
 
 
+char * get_ID(void * element)
+{
+	return ((student_t *)element)->ID;
+}
+
+char * get_eng(void * element)
+{
+    static char buffer[20];
+    sprintf(buffer, "%d", ((student_t *)element)->eng);
+	return buffer;
+}
+
+char * get_math(void * element)
+{
+    static char buffer[20];
+    sprintf(buffer, "%d", ((student_t *)element)->math);
+	return buffer;
+}
+
+
 
 int main() {
     student_t node[6] = {
-        {"C120308001", 70, 100},
-        {"B220406001", 60, 90},
-        {"D120306001", 80, 95},
-        {"A220407001", 65, 90},
-        {"D220506001", 10, 70},
-        {"A120406001", 90, 90}
+        {"A", 70, 100},
+        {"B", 60, 90},
+        {"C", 80, 95},
+        {"D", 65, 90},
+        {"E", 10, 70},
+        {"F", 90, 90}
     };
 
 
@@ -53,6 +73,8 @@ int main() {
 
     printf("%d\n",((student_t *)*((void **)first_pq.heap.elements + 1))->eng);
 
+    printf("pq level : %d\n", count_pq_level(&first_pq));
 
+    pq_printf_tree(&first_pq, get_math);
 
 }

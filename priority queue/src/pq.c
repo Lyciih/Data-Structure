@@ -17,3 +17,28 @@ int Enqueue(PQ_t * pq, void * elementA)
     pq->heap.numElementds++;
     printf("%d\n", pq->heap.numElementds);
 }
+
+int count_pq_level(PQ_t * pq)
+{    
+    int nodes = pq->heap.numElementds;
+    int count = 0;
+    
+    while(1)
+    {
+        if(nodes == 1)
+        {
+            return count;
+        }
+        else if(nodes % 2 == 0)
+        {
+            count++;
+            nodes /= 2;
+        }
+        else
+        {
+            count++;
+            nodes--;
+            nodes /= 2;
+        }
+    }
+}
