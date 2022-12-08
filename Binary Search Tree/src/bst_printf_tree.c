@@ -46,6 +46,8 @@ int count_queue(int tree_level)
 	return exponent_Int(2, tree_level+1) - 1;
 }
 
+
+
 void queue_init(btreeNode_t * queue[], int range)
 {
 	for(int i = 0 ; i < range ; i++)
@@ -98,6 +100,10 @@ void print_queue_data(btreeNode_t * queue[], void(*print)(btreeNode_t * queue_me
 
 void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member))
 {
+	if(root == NULL)
+	{
+		return;
+	}
 	int level = count_tree_level(root);
 	int width = count_picture_width(level);
 	int times = count_print_times(level);
