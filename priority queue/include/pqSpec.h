@@ -2,6 +2,7 @@
 #define PQSPEC_H_INCLUDED
 
 #include<stdio.h>
+#include<stdlib.h>
 
 typedef struct HeapType {
     void * elements;
