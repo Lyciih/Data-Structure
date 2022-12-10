@@ -32,7 +32,7 @@ int IsFull(PQ_t * pq);
 
 int Enqueue(PQ_t * pq, void * elementA);
 
-void * Dequeue_new(PQ_t * pq);
+void * Dequeue(PQ_t * pq);
 
 
 int count_pq_level(PQ_t * pq);
