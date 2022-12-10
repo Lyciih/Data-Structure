@@ -59,11 +59,11 @@ int Enqueue(PQ_t * pq, void * elementA)
         {
             while(location != 1)
             {
-                int top = location / 2;
-                if((pq->compare(*((void **)(pq->heap.elements) + top - 1), elementA)) == 1)
+                int TOP = location / 2;
+                if((pq->compare(*((void **)(pq->heap.elements) + TOP - 1), elementA)) == 1)
                 {
-                    temp = *((void **)(pq->heap.elements) + top - 1);
-                    *((void **)(pq->heap.elements) + top - 1) = *((void **)(pq->heap.elements) + location - 1);
+                    temp = *((void **)(pq->heap.elements) + TOP - 1);
+                    *((void **)(pq->heap.elements) + TOP - 1) = *((void **)(pq->heap.elements) + location - 1);
                     *((void **)(pq->heap.elements) + location - 1) = temp;
                     location /= 2;
                 }
@@ -78,11 +78,11 @@ int Enqueue(PQ_t * pq, void * elementA)
         {
             while(location != 1)
             {
-                int top = location / 2;
-                if((pq->compare(*((void **)(pq->heap.elements) + top - 1), elementA)) == -1)
+                int TOP = location / 2;
+                if((pq->compare(*((void **)(pq->heap.elements) + TOP - 1), elementA)) == -1)
                 {
-                    temp = *((void **)(pq->heap.elements) + top - 1);
-                    *((void **)(pq->heap.elements) + top - 1) = *((void **)(pq->heap.elements) + location - 1);
+                    temp = *((void **)(pq->heap.elements) + TOP - 1);
+                    *((void **)(pq->heap.elements) + TOP - 1) = *((void **)(pq->heap.elements) + location - 1);
                     *((void **)(pq->heap.elements) + location - 1) = temp;
                     location /= 2;
                 }
@@ -131,16 +131,12 @@ void * Dequeue(PQ_t * pq)
         return NULL;
     }
 
-    
-
     void * output = *((void **)(pq->heap.elements));
-
     *((void **)(pq->heap.elements)) = *((void **)(pq->heap.elements) + pq->heap.numElementds - 1);
     pq->heap.numElementds--;
 
 
     int location = 1;
-
     void * temp = NULL;
 
     if(pq->heap.numElementds > 1)
@@ -215,5 +211,165 @@ void * Dequeue(PQ_t * pq)
             }
         }
     }
+    return output;
+}
+
+
+
+void * Dequeue_new(PQ_t * pq)
+{
+
+    if(IsEmpty(pq) == 0)
+    {
+        return NULL;
+    }
+
+    void * output = *((void **)(pq->heap.elements));
+    *((void **)(pq->heap.elements)) = *((void **)(pq->heap.elements) + pq->heap.numElementds - 1);
+    pq->heap.numElementds--;
+
+
+    int location = 1;
+    void * temp = NULL;
+    #define TOP  *((void **)(pq->heap.elements) + location - 1)
+    #define LEFT  *((void **)(pq->heap.elements) + location * 2 - 1)
+    #define RIGHT  *((void **)(pq->heap.elements) + location * 2)
+
+    if(pq->heap.numElementds > 1)
+    {
+        if(pq->pqClass == 0)
+        {
+            while(location * 2 <= pq->heap.numElementds)
+            {
+                if(location * 2 < pq->heap.numElementds && location * 2 + 1 <= pq->heap.numElementds)
+                {
+                    if(pq->compare(TOP , LEFT) == -1 && pq->compare(TOP , RIGHT) == -1)
+                    {
+                        break;
+                    }
+                    else if(pq->compare(TOP , LEFT) == 1 && pq->compare(TOP , RIGHT) == -1)
+                    {
+                        temp = TOP;
+                        TOP = LEFT;
+                        LEFT = temp;
+                        location *= 2;
+                    }
+                    else if(pq->compare(TOP , LEFT) == -1 && pq->compare(TOP , RIGHT) == 1)
+                    {
+                        temp = TOP;
+                        TOP = RIGHT;
+                        RIGHT = temp;
+                        location *= 2;
+                        location++;
+                    }
+                    else if(pq->compare(TOP , LEFT) == 1 && pq->compare(TOP , RIGHT) == 1)
+                    {
+                        if(pq->compare(LEFT, RIGHT) == 1)
+                        {
+                            temp = TOP;
+                            TOP = RIGHT;
+                            RIGHT = temp;
+                            location *= 2;
+                            location++;
+                        }
+                        else if(pq->compare(LEFT, RIGHT) == -1)
+                        {
+                            temp = TOP;
+                            TOP = LEFT;
+                            LEFT = temp;
+                            location *= 2;
+                        }
+                    }
+                }
+                else if(location * 2 == pq->heap.numElementds)
+                {
+                    if(pq->compare(TOP , LEFT) == -1)
+                    {
+                        break;
+                    }
+                    else if(pq->compare(TOP , LEFT) == 1)
+                    {
+                        temp = TOP;
+                        TOP = LEFT;
+                        LEFT = temp;
+                        location *= 2;
+                    }
+                }
+                else
+                {
+                    break;
+                }               
+            }
+        }
+
+
+        if(pq->pqClass == 1)
+        {
+            while(location * 2 <= pq->heap.numElementds)
+            {
+                if(location * 2 < pq->heap.numElementds && location * 2 + 1 <= pq->heap.numElementds)
+                {
+                    if(pq->compare(TOP , LEFT) == 1 && pq->compare(TOP , RIGHT) == 1)
+                    {
+                        break;
+                    }
+                    else if(pq->compare(TOP , LEFT) == -1 && pq->compare(TOP , RIGHT) == 1)
+                    {
+                        temp = TOP;
+                        TOP = LEFT;
+                        LEFT = temp;
+                        location *= 2;
+                    }
+                    else if(pq->compare(TOP , LEFT) == 1 && pq->compare(TOP , RIGHT) == -1)
+                    {
+                        temp = TOP;
+                        TOP = RIGHT;
+                        RIGHT = temp;
+                        location *= 2;
+                        location++;
+                    }
+                    else if(pq->compare(TOP , LEFT) == -1 && pq->compare(TOP , RIGHT) == -1)
+                    {
+                        if(pq->compare(LEFT, RIGHT) == -1)
+                        {
+                            temp = TOP;
+                            TOP = RIGHT;
+                            RIGHT = temp;
+                            location *= 2;
+                            location++;
+                        }
+                        else if(pq->compare(LEFT, RIGHT) == 1)
+                        {
+                            temp = TOP;
+                            TOP = LEFT;
+                            LEFT = temp;
+                            location *= 2;
+                        }
+                    }
+                }
+                else if(location * 2 == pq->heap.numElementds)
+                {
+                    if(pq->compare(TOP , LEFT) == 1)
+                    {
+                        break;
+                    }
+                    else if(pq->compare(TOP , LEFT) == -1)
+                    {
+                        temp = TOP;
+                        TOP = LEFT;
+                        LEFT = temp;
+                        location *= 2;
+                    }
+                }
+                else
+                {
+                    break;
+                }               
+            }
+
+         
+        }
+    }
+    
     return output;
 }

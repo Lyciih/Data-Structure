@@ -79,7 +79,7 @@ int main() {
     printf("\n");
     printf("DELETE :\n");
 
-    while(Dequeue(&first_pq))
+    while(Dequeue_new(&first_pq))
     {       
         pq_printf_tree(&first_pq, get_math);
     }
@@ -118,7 +118,7 @@ int main() {
     printf("\n");
     printf("DELETE :\n");
 
-    while(Dequeue(&second_pq))
+    while(Dequeue_new(&second_pq))
     {
         pq_printf_tree(&second_pq, get_math);
     }
