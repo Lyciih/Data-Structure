@@ -45,7 +45,9 @@ char * get_math(void * element)
 int main() {
 
     printf("\n");
-    printf("MINIMUM HEAP :\n");
+    printf("-----------------------------------------\n");
+    printf("MINIMUM HEAP\n");
+    printf("-----------------------------------------\n");
 
 
     student_t node[10] = {
@@ -75,12 +77,18 @@ int main() {
     }
 
     printf("\n");
+    printf("the tree level is : %d\n", count_pq_level(&first_pq));
+    printf("\n");
     printf("is queue full? 0->true 1->false : %d\n", IsFull(&first_pq));
     printf("\n");
-    printf("DELETE :\n");
 
-    while(Dequeue(&first_pq))
-    {       
+    printf("-----------------------------------------\n");
+    printf("DELETE\n");
+
+    for(int i = 0 ; i<10 ; i++)
+    {
+        printf("-----------------------------------------\n");
+        printf("get : %s\n", get_math(Dequeue(&first_pq)));      
         pq_printf_tree(&first_pq, get_math);
     }
 
@@ -89,7 +97,8 @@ int main() {
 //---------------------------------------------------------------
 
     printf("\n");
-    printf("MAXIMUM HEAP :\n");
+    printf("-----------------------------------------\n");
+    printf("MAXIMUM HEAP\n");
 
 
     student_t node_two[10] = {
@@ -116,10 +125,13 @@ int main() {
     }
 
     printf("\n");
-    printf("DELETE :\n");
+    printf("-----------------------------------------\n");
+    printf("DELETE\n");
 
-    while(Dequeue(&second_pq))
+    for(int i = 0 ; i<10 ; i++)
     {
+        printf("-----------------------------------------\n");
+        printf("get : %s\n", get_math(Dequeue(&second_pq)));      
         pq_printf_tree(&second_pq, get_math);
     }
 
