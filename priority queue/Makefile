@@ -12,14 +12,14 @@ OBJS = $(SRCS_C:.c=.o)
 all:test
 
 test : test.c priority_queue.a
-	gcc -I include -o test $^
+	gcc -I include -Wall -o test $^
 
 %.a : $(OBJS)
 	ar -rcs priority_queue.a $^
 
 
 src/%.o : src/%.c
-	gcc -c -I include -o $@ $^
+	gcc -c -I include -Wall -o $@ $^
 
 
 .PHONY : clean run

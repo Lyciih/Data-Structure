@@ -62,7 +62,7 @@ int main() {
     };
 
     PQ_t first_pq;
-    createPQ(&first_pq, MINHEAP, sizeof(student_t), 10, compareMath);
+    createPQ(&first_pq, MINHEAP, 10, compareMath);
 
     printf("is queue empty? 0->true 1->false : %d\n", IsEmpty(&first_pq));
 
@@ -107,7 +107,7 @@ int main() {
 
 
     PQ_t second_pq;
-    createPQ(&second_pq, MAXHEAP, sizeof(student_t), 10, compareMath);
+    createPQ(&second_pq, MAXHEAP, 10, compareMath);
 
     for(int i = 0 ; i < 10 ; i++)
     {

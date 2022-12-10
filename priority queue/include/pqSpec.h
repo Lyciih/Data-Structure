@@ -24,7 +24,7 @@ typedef struct PQ {
 }PQ_t;
 
 
-void createPQ(PQ_t * pq, H_class pqClass, int elementsSize, int maxSize, int (*compare)(void * elementA, void * elementB));
+void createPQ(PQ_t * pq, H_class pqClass, int maxSize, int (*compare)(void * elementA, void * elementB));
 
 int IsEmpty(PQ_t * pq);
 
@@ -33,7 +33,6 @@ int IsFull(PQ_t * pq);
 int Enqueue(PQ_t * pq, void * elementA);
 
 void * Dequeue(PQ_t * pq);
-
 
 int count_pq_level(PQ_t * pq);
 

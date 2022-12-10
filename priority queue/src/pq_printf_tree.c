@@ -52,10 +52,8 @@ void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member))
     }
     int level = count_pq_level(pq);
     int width = count_picture_width(level);
-    int times = count_print_times(level);
     int queue_out = 0;
     int queue_trans = 1;
-    int offset = 0;
     int offset_direct = 0;
 	char buffer[20];
 
@@ -117,7 +115,6 @@ void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member))
 				if(label[k] == '*')
 				{
                     offset_direct++;
-					offset = 0;
 					sprintf(buffer, "%s", get_data(*((void **)pq->heap.elements + queue_out)));
 
                     if(offset_direct % 2 == 1)
@@ -262,7 +259,6 @@ void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member))
 		if(label[k] == '*')
 		{	
             offset_direct++;			
-			offset = 0;
 			sprintf(buffer, "%s", get_data(*((void **)pq->heap.elements + queue_out)));
 
             if(offset_direct % 2 == 1)
