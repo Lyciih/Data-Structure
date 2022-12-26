@@ -27,7 +27,7 @@ int count_picture_width(int pq_tree_level)
 
 
 
-//計算畫完整張圖需要的行數
+//算出每一個level需要列印的行數
 int count_print_times(int pq_tree_level)
 {
 	if(pq_tree_level == 0)
