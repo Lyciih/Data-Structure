@@ -158,6 +158,7 @@ void AVL_RL(avl_node_t ** root)
     (*root)->left = temp;
 
     AVL_tree_height_update((*root)->left);
+    
 }
 
 
@@ -185,6 +186,8 @@ void AVL_rotate(avl_node_t ** root)
     if(compare_result == 4)
     {
         AVL_RR(root);      
-    }  
+    } 
+
+    AVL_tree_height_update(*root);
 }
 

@@ -28,15 +28,8 @@ int get_height(avl_node_t * element)
 
 int main(){
 
-    avl_node_t * avl_root_a0 = NULL;
-    avl_node_t * avl_root_a1 = NULL;
-    avl_node_t * avl_root_a2 = NULL;
-    avl_node_t * avl_root_b0 = NULL;
-    avl_node_t * avl_root_b1 = NULL;
-    avl_node_t * avl_root_b2 = NULL;
-    avl_node_t * avl_root_c0 = NULL;
-    avl_node_t * avl_root_c1 = NULL;
-    avl_node_t * avl_root_c2 = NULL;
+    avl_node_t * avl_root_a = NULL;
+
 
     test_avl_t a={
         .name = 'A',
@@ -137,32 +130,35 @@ int main(){
     printf("\n--------------------------------------");
     printf("\ncase a");
     printf("\n--------------------------------------");
-    AVL_insert(&a.node, &avl_root_a0, compare_value);
-    AVL_insert(&b.node, &avl_root_a0, compare_value);
-    printf_AVL_tree(avl_root_a0,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
+    avl_root_a = NULL;
 
     printf("\n----- case a insert 15 -----\n");
-    AVL_insert(&a.node, &avl_root_a1, compare_value);
-    AVL_insert(&b.node, &avl_root_a1, compare_value);
-    AVL_insert(&k.node, &avl_root_a1, compare_value);
-    printf_AVL_tree(avl_root_a1,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&k.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
     AVL_init(&k.node);
+    avl_root_a = NULL;
 
 
     printf("\n----- case a insert 8 -----\n");
-    AVL_insert(&a.node, &avl_root_a2, compare_value);
-    AVL_insert(&b.node, &avl_root_a2, compare_value);
-    AVL_insert(&l.node, &avl_root_a2, compare_value);
-    printf_AVL_tree(avl_root_a2,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&l.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
     AVL_init(&a.node);
     AVL_init(&b.node);
     AVL_init(&l.node);
+    avl_root_a = NULL;
 
 
 
@@ -170,44 +166,46 @@ int main(){
     printf("\ncase b");
     printf("\n--------------------------------------");
 
-    AVL_insert(&a.node, &avl_root_b0, compare_value);
-    AVL_insert(&b.node, &avl_root_b0, compare_value);
-    AVL_insert(&c.node, &avl_root_b0, compare_value);    
-    AVL_insert(&d.node, &avl_root_b0, compare_value);
-    AVL_insert(&e.node, &avl_root_b0, compare_value);
-    printf_AVL_tree(avl_root_b0,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&d.node, &avl_root_a, compare_value);
+    AVL_insert(&e.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
     AVL_init(&c.node);
     AVL_init(&d.node);
     AVL_init(&e.node);
+    avl_root_a = NULL;
 
     printf("\n----- case b insert 15 -----\n");
 
-    AVL_insert(&a.node, &avl_root_b1, compare_value);
-    AVL_insert(&b.node, &avl_root_b1, compare_value);
-    AVL_insert(&c.node, &avl_root_b1, compare_value);    
-    AVL_insert(&d.node, &avl_root_b1, compare_value);
-    AVL_insert(&e.node, &avl_root_b1, compare_value);
-    AVL_insert(&k.node, &avl_root_b1, compare_value);
-    printf_AVL_tree(avl_root_b1,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&d.node, &avl_root_a, compare_value);
+    AVL_insert(&e.node, &avl_root_a, compare_value);
+    AVL_insert(&k.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
     AVL_init(&a.node);
     AVL_init(&b.node);
     AVL_init(&c.node);
     AVL_init(&d.node);
     AVL_init(&e.node);
     AVL_init(&k.node);
+    avl_root_a = NULL;
 
     printf("\n----- case b insert 8 -----\n");
 
-    AVL_insert(&a.node, &avl_root_b2, compare_value);
-    AVL_insert(&b.node, &avl_root_b2, compare_value);
-    AVL_insert(&c.node, &avl_root_b2, compare_value);    
-    AVL_insert(&d.node, &avl_root_b2, compare_value);
-    AVL_insert(&e.node, &avl_root_b2, compare_value);
-    AVL_insert(&l.node, &avl_root_b2, compare_value);
-    printf_AVL_tree(avl_root_b2,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&d.node, &avl_root_a, compare_value);
+    AVL_insert(&e.node, &avl_root_a, compare_value);
+    AVL_insert(&l.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -215,22 +213,23 @@ int main(){
     AVL_init(&d.node);
     AVL_init(&e.node);
     AVL_init(&l.node);
+    avl_root_a = NULL;
 
     printf("\n--------------------------------------");
     printf("\ncase c");
     printf("\n--------------------------------------");
 
-    AVL_insert(&a.node, &avl_root_c0, compare_value);
-    AVL_insert(&b.node, &avl_root_c0, compare_value);
-    AVL_insert(&c.node, &avl_root_c0, compare_value);    
-    AVL_insert(&d.node, &avl_root_c0, compare_value);
-    AVL_insert(&e.node, &avl_root_c0, compare_value);
-    AVL_insert(&f.node, &avl_root_c0, compare_value);   
-    AVL_insert(&g.node, &avl_root_c0, compare_value);
-    AVL_insert(&h.node, &avl_root_c0, compare_value);
-    AVL_insert(&i.node, &avl_root_c0, compare_value);
-    AVL_insert(&j.node, &avl_root_c0, compare_value);
-    printf_AVL_tree(avl_root_c0,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&d.node, &avl_root_a, compare_value);
+    AVL_insert(&e.node, &avl_root_a, compare_value);
+    AVL_insert(&f.node, &avl_root_a, compare_value);   
+    AVL_insert(&g.node, &avl_root_a, compare_value);
+    AVL_insert(&h.node, &avl_root_a, compare_value);
+    AVL_insert(&i.node, &avl_root_a, compare_value);
+    AVL_insert(&j.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -242,22 +241,23 @@ int main(){
     AVL_init(&h.node);
     AVL_init(&i.node);
     AVL_init(&j.node);
+    avl_root_a = NULL;
 
     printf("\n----- case c insert 15 -----\n");
 
 
-    AVL_insert(&a.node, &avl_root_c1, compare_value);
-    AVL_insert(&b.node, &avl_root_c1, compare_value);
-    AVL_insert(&c.node, &avl_root_c1, compare_value);    
-    AVL_insert(&d.node, &avl_root_c1, compare_value);
-    AVL_insert(&e.node, &avl_root_c1, compare_value);
-    AVL_insert(&f.node, &avl_root_c1, compare_value);   
-    AVL_insert(&g.node, &avl_root_c1, compare_value);
-    AVL_insert(&h.node, &avl_root_c1, compare_value);
-    AVL_insert(&i.node, &avl_root_c1, compare_value);
-    AVL_insert(&j.node, &avl_root_c1, compare_value);
-    AVL_insert(&k.node, &avl_root_c1, compare_value);
-    printf_AVL_tree(avl_root_c1,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&d.node, &avl_root_a, compare_value);
+    AVL_insert(&e.node, &avl_root_a, compare_value);
+    AVL_insert(&f.node, &avl_root_a, compare_value);   
+    AVL_insert(&g.node, &avl_root_a, compare_value);
+    AVL_insert(&h.node, &avl_root_a, compare_value);
+    AVL_insert(&i.node, &avl_root_a, compare_value);
+    AVL_insert(&j.node, &avl_root_a, compare_value);
+    AVL_insert(&k.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -270,22 +270,23 @@ int main(){
     AVL_init(&i.node);
     AVL_init(&j.node);
     AVL_init(&k.node);
+    avl_root_a = NULL;
 
     printf("\n----- case c insert 8 -----\n");
 
 
-    AVL_insert(&a.node, &avl_root_c2, compare_value);
-    AVL_insert(&b.node, &avl_root_c2, compare_value);
-    AVL_insert(&c.node, &avl_root_c2, compare_value);    
-    AVL_insert(&d.node, &avl_root_c2, compare_value);
-    AVL_insert(&e.node, &avl_root_c2, compare_value);
-    AVL_insert(&f.node, &avl_root_c2, compare_value);   
-    AVL_insert(&g.node, &avl_root_c2, compare_value);
-    AVL_insert(&h.node, &avl_root_c2, compare_value);
-    AVL_insert(&i.node, &avl_root_c2, compare_value);
-    AVL_insert(&j.node, &avl_root_c2, compare_value);
-    AVL_insert(&l.node, &avl_root_c2, compare_value);
-    printf_AVL_tree(avl_root_c2,  get_value);
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&d.node, &avl_root_a, compare_value);
+    AVL_insert(&e.node, &avl_root_a, compare_value);
+    AVL_insert(&f.node, &avl_root_a, compare_value);   
+    AVL_insert(&g.node, &avl_root_a, compare_value);
+    AVL_insert(&h.node, &avl_root_a, compare_value);
+    AVL_insert(&i.node, &avl_root_a, compare_value);
+    AVL_insert(&j.node, &avl_root_a, compare_value);
+    AVL_insert(&l.node, &avl_root_a, compare_value);
+    printf_AVL_tree(avl_root_a,  get_value);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -298,6 +299,7 @@ int main(){
     AVL_init(&i.node);
     AVL_init(&j.node);
     AVL_init(&l.node);
+    avl_root_a = NULL;
 
 
 
