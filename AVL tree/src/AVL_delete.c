@@ -1,27 +1,6 @@
 #include"AVLSpec.h"
 
-
-avl_node_t * AVL_find_minimum(avl_node_t * root)
-{
-    if(root == NULL)
-    {
-        return NULL;
-    }
-    else if(root->left == NULL)
-    {
-        return root;
-    }
-    else
-    {
-        return AVL_find_minimum(root->left);
-    }
-}
-
-
-
-
-
-void AVL_delete_end(avl_node_t * delete_element, avl_node_t ** root, int (*compare)(void * delete_element, void * in_tree_element))
+static void AVL_delete_end(avl_node_t * delete_element, avl_node_t ** root, int (*compare)(void * delete_element, void * in_tree_element))
 {
     avl_node_t * temp = NULL;
 

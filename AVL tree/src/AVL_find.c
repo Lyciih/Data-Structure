@@ -19,3 +19,35 @@ avl_node_t * AVL_find(int key, avl_node_t ** root, int (*compare)(int key, void 
         return AVL_find(key, &((*root)->right), compare);
     }
 }
+
+avl_node_t * AVL_find_minimum(avl_node_t * root)
+{
+    if(root == NULL)
+    {
+        return NULL;
+    }
+    else if(root->left == NULL)
+    {
+        return root;
+    }
+    else
+    {
+        return AVL_find_minimum(root->left);
+    }
+}
+
+avl_node_t * AVL_find_maximum(avl_node_t * root)
+{
+    if(root == NULL)
+    {
+        return NULL;
+    }
+    else if(root->right == NULL)
+    {
+        return root;
+    }
+    else
+    {
+        return AVL_find_minimum(root->right);
+    }
+}
