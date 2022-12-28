@@ -12,7 +12,13 @@ typedef struct avl_node {
 } avl_node_t;
 
 
+void AVL_init(avl_node_t * node);
 
+void AVL_tree_height_update(avl_node_t * root);
+
+int AVL_height_compare(avl_node_t ** root);
+
+void AVL_rotate(avl_node_t ** root);
 
 void AVL_insert(avl_node_t * element, avl_node_t ** root, int (*compare)(void * elementA, void * elementB));
 
@@ -29,5 +35,8 @@ void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_membe
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
 
 #define return_to_user_struct_pointer(USER_STRUCT, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT *)((size_t)MEMBER_POINT - offsetof(USER_STRUCT, MEMBER_NAME)))
+
+
+int maximum(int a, int b);
 
 #endif

@@ -20,10 +20,13 @@ int get_value(avl_node_t * element)
     return return_to_user_struct_pointer(test_avl_t, node, element)->value;
 }
 
+int get_height(avl_node_t * element)
+{
+    return element->height;
+}
+
 
 int main(){
-    printf("hello\n");
-
 
     avl_node_t * avl_root_one = NULL;
 
@@ -75,12 +78,17 @@ int main(){
         .node.right = NULL
     };
 
-    printf("%d\n",compare_value(&a.node, &b.node));
+    printf("insert a\n");
     AVL_insert(&a.node, &avl_root_one, compare_value);
+    printf("insert b\n");
     AVL_insert(&b.node, &avl_root_one, compare_value);
+    printf("insert c\n");
     AVL_insert(&c.node, &avl_root_one, compare_value);
+    printf("insert d\n");
     AVL_insert(&d.node, &avl_root_one, compare_value);
+    printf("insert e\n");
     AVL_insert(&e.node, &avl_root_one, compare_value);
+    printf("insert f\n");
     AVL_insert(&f.node, &avl_root_one, compare_value);
 
     printf_AVL_tree(avl_root_one,  get_value);

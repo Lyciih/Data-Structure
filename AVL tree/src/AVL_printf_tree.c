@@ -114,7 +114,6 @@ void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_membe
 
 	int queue_out = 0;
 	int queue_trans = 0;
-	int offset = 0;
 	char buffer[20];
 	avl_node_t * queue[count_queue(level)];
 
@@ -177,16 +176,76 @@ void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_membe
 
 				if(label[k] == '*')
 				{
-					offset = 0;
 					sprintf(buffer, "%d", get_data(queue[queue_out]));
-					
-					offset = strlen(buffer)/2;
-					for(int p = 0 ; p < strlen(buffer) ; p++)
-					{
-						text[k - offset] = buffer[p];
-						offset--;
-					}				
+
+					if(i == 0)
+                    {
+                        if(strlen(buffer) == 1)
+                        {
+                            text[k] = buffer[0];
+                        }
+
+                        if(strlen(buffer) == 2)
+                        {
+                            text[k-1] = buffer[0];
+                            text[k] = buffer[1];
+                        }
+
+                        if(strlen(buffer) == 3)
+                        {
+                            text[k-1] = buffer[0];
+                            text[k] = buffer[1];
+                            text[k+1] = buffer[2];
+                        }
+                    }
+
+					if(label[k+1] == '<')
+                    {
+                        if(strlen(buffer) == 1)
+                        {
+                            text[k] = buffer[0];
+                        }
+
+                        if(strlen(buffer) == 2)
+                        {
+                            text[k] = buffer[0];
+                            text[k+1] = buffer[1];
+                        }
+
+                        if(strlen(buffer) == 3)
+                        {
+                            text[k] = buffer[0];
+                            text[k+1] = buffer[1];
+                            text[k+2] = buffer[2];
+                        }
+                    
+						label[k+1] = ' ';     
+                    }
+
+                    if(label[k-1] == '>')
+                    {
+                        if(strlen(buffer) == 1)
+                        {
+                            text[k] = buffer[0];
+                        }
+
+                        if(strlen(buffer) == 2)
+                        {
+                            text[k-1] = buffer[0];
+                            text[k] = buffer[1];
+                        }
+
+                        if(strlen(buffer) == 3)
+                        {
+                            text[k-2] = buffer[0];
+                            text[k-1] = buffer[1];
+                            text[k] = buffer[2];
+                        }
+						label[k-1] = ' ';
+                    }		
+
 					queue_out += 1;
+					
 				}
 			}
 
@@ -237,11 +296,13 @@ void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_membe
 				if(label[i] == 'L')
 				{
 					label[i] = '*';
+					label[i+1] = '<';
 				}
 
 				if(label[i] == 'R')
 				{
 					label[i] = '*';
+					label[i-1] = '>';
 				}
 			}
 		}
@@ -258,15 +319,52 @@ void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_membe
 	{
 		if(label[k] == '*')
 		{				
-			offset = 0;
 			sprintf(buffer, "%d", get_data(queue[queue_out]));
-					
-			offset = strlen(buffer)/2;
-			for(int p = 0 ; p < strlen(buffer) ; p++)
-			{
-				text[k - offset] = buffer[p];
-				offset--;
-			}				
+
+			if(label[k+1] == '<')
+            {
+                if(strlen(buffer) == 1)
+                {
+                    text[k] = buffer[0];
+                }
+
+                if(strlen(buffer) == 2)
+                {
+                    text[k] = buffer[0];
+                    text[k+1] = buffer[1];
+                }
+
+                if(strlen(buffer) == 3)
+                {
+                    text[k] = buffer[0];
+                    text[k+1] = buffer[1];
+                    text[k+2] = buffer[2];
+                }
+				label[k+1] = ' ';
+            }
+
+            if(label[k-1] == '>')
+            {
+                if(strlen(buffer) == 1)
+                {
+                    text[k] = buffer[0];
+                }
+
+                if(strlen(buffer) == 2)
+                {
+                    text[k-1] = buffer[0];
+                    text[k] = buffer[1];
+                }
+
+                if(strlen(buffer) == 3)
+                {
+                    text[k-2] = buffer[0];
+                    text[k-1] = buffer[1];
+                    text[k] = buffer[2];
+                }
+				label[k-1] = ' ';
+            }		
+			
 			queue_out += 1;
 		}
 	}
