@@ -12,8 +12,7 @@ void AVL_insert(avl_node_t * element, avl_node_t ** root, int (*compare)(void * 
     }
     else
     {
-        int compare_result = 0;
-        compare_result = compare(element, *root);
+        int compare_result = compare(element, *root);
 
         if(compare_result == -1)
         {
@@ -31,7 +30,6 @@ void AVL_insert(avl_node_t * element, avl_node_t ** root, int (*compare)(void * 
         }
         else if(compare_result == 0)
         {
-            printf("value existed\n");
             return;
         }
         else

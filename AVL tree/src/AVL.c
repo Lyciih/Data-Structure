@@ -80,12 +80,12 @@ int AVL_height_compare(avl_node_t ** root)
         {
             if(AVL_get_height((*root)->left->left) > AVL_get_height((*root)->left->right))
             {
-                printf("LL type\n");
+                //printf("LL type\n");
                 return 1;
             }
             else
             {
-                printf("LR type\n");
+                //printf("LR type\n");
                 return 2;
             }
         }
@@ -94,12 +94,12 @@ int AVL_height_compare(avl_node_t ** root)
         {
             if(AVL_get_height((*root)->right->left) > AVL_get_height((*root)->right->right))
             {
-                printf("RL type\n");
+                //printf("RL type\n");
                 return 3;
             }
             else
             {
-                printf("RR type\n");
+                //printf("RR type\n");
                 return 4;
             }
         }
