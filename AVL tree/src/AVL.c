@@ -73,12 +73,14 @@ int AVL_height_compare(avl_node_t ** root)
     else
     {
         int left_height = AVL_get_height((*root)->left);
+        //printf("left %d\n", left_height);
         int right_height = AVL_get_height((*root)->right);
+        //printf("right %d\n", right_height);
 
 
         if(left_height - right_height == 2)
         {
-            if(AVL_get_height((*root)->left->left) > AVL_get_height((*root)->left->right))
+            if(AVL_get_height((*root)->left->left) >= AVL_get_height((*root)->left->right))
             {
                 //printf("LL type\n");
                 return 1;

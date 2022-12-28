@@ -1,6 +1,6 @@
 #include"AVLSpec.h"
 
-void AVL_insert(avl_node_t * element, avl_node_t ** root, int (*compare)(void * elementA, void * elementB))
+void AVL_insert(avl_node_t * element, avl_node_t ** root, int (*compare)(void * element, void * in_tree_element))
 {
     if(*root == NULL)
     {

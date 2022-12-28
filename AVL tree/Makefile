@@ -4,6 +4,8 @@ OBJ = \
 	obj/AVL.o \
 	obj/AVL_printf_tree.o \
 	obj/AVL_insert.o \
+	obj/AVL_find.o \
+	obj/AVL_delete.o \
 
 all : test
 

@@ -15,6 +15,15 @@ int compare_value(void * elementA, void * elementB)
     else{return 2;}
 }
 
+int compare_key(int key, void * in_tree_element)
+{
+    if(key < return_to_user_struct_pointer(test_avl_t, node, in_tree_element)->value){return -1;}
+    else if(key == return_to_user_struct_pointer(test_avl_t, node, in_tree_element)->value){return 0;}
+    else{return 1;}
+}
+
+
+
 int get_value(avl_node_t * element)
 {
     return return_to_user_struct_pointer(test_avl_t, node, element)->value;
@@ -288,18 +297,55 @@ int main(){
     AVL_insert(&l.node, &avl_root_a, compare_value);
     printf_AVL_tree(avl_root_a,  get_value);
 
-    AVL_init(&a.node);
-    AVL_init(&b.node);
-    AVL_init(&c.node);
-    AVL_init(&d.node);
-    AVL_init(&e.node);
-    AVL_init(&f.node);
-    AVL_init(&g.node);
-    AVL_init(&h.node);
-    AVL_init(&i.node);
-    AVL_init(&j.node);
-    AVL_init(&l.node);
-    avl_root_a = NULL;
+    printf("\n");
+
+    avl_node_t * found = AVL_find(8, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
+
+    found = AVL_find(7, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
+
+    found = AVL_find(11, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
+
+    found = AVL_find(26, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
+
+    found = AVL_find(21, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
+
+    found = AVL_find(30, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
+
+    found = AVL_find(2, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
+
+    found = AVL_find(20, &avl_root_a, compare_key);
+    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    AVL_delete(found, &avl_root_a, compare_value);
+
+    printf_AVL_tree(avl_root_a, get_value);
 
 
 
