@@ -48,6 +48,6 @@ avl_node_t * AVL_find_maximum(avl_node_t * root)
     }
     else
     {
-        return AVL_find_minimum(root->right);
+        return AVL_find_maximum(root->right);
     }
 }

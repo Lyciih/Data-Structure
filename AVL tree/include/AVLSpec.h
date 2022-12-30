@@ -20,19 +20,19 @@ int AVL_height_compare(avl_node_t ** root);
 
 void AVL_rotate(avl_node_t ** root);
 
-void AVL_insert(avl_node_t * element, avl_node_t ** root, int (*compare)(void * element, void * in_tree_element));
+void AVL_insert(avl_node_t * element, avl_node_t ** root, int(*compare)(void * element, void * in_tree_element));
 
-avl_node_t * AVL_find(int key, avl_node_t ** root, int (*compare)(int key, void * in_tree_element));
+avl_node_t * AVL_find(int key, avl_node_t ** root, int(*compare)(int key, void * in_tree_element));
 
 avl_node_t * AVL_find_minimum(avl_node_t * root);
 
 avl_node_t * AVL_find_maximum(avl_node_t * root);
 
-void AVL_delete(avl_node_t * delete_element, avl_node_t ** root, int (*compare)(void * delete_element, void * in_tree_element));
+void AVL_delete(avl_node_t * delete_element, avl_node_t ** root, int(*compare)(void * delete_element, void * in_tree_element));
 
 int count_AVL_tree_level(avl_node_t * root);
 
-void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_member));
+void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_member), int ascii);
 
 //-------  巨集  -------//
 

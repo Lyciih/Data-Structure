@@ -103,7 +103,7 @@ void print_queue_data(avl_node_t * queue[], void(*print)(avl_node_t * queue_memb
 }
 
 
-void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_member))
+void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_member), int ascii)
 {
 	if(root == NULL)
 	{
@@ -176,7 +176,15 @@ void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_membe
 
 				if(label[k] == '*')
 				{
-					sprintf(buffer, "%d", get_data(queue[queue_out]));
+					if(ascii == 1)
+					{
+						sprintf(buffer, "%c", (char)(get_data(queue[queue_out])));
+					}
+					else
+					{
+						sprintf(buffer, "%d", get_data(queue[queue_out]));
+					}
+					
 
 					if(i == 0)
                     {
@@ -319,7 +327,14 @@ void printf_AVL_tree(avl_node_t * root,  int(*get_data)(avl_node_t * queue_membe
 	{
 		if(label[k] == '*')
 		{				
-			sprintf(buffer, "%d", get_data(queue[queue_out]));
+			if(ascii == 1)
+			{
+				sprintf(buffer, "%c", (char)(get_data(queue[queue_out])));
+			}
+			else
+			{
+				sprintf(buffer, "%d", get_data(queue[queue_out]));
+			}
 
 			if(label[k+1] == '<')
             {

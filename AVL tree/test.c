@@ -22,8 +22,6 @@ int compare_key(int key, void * in_tree_element)
     else{return 1;}
 }
 
-
-
 int get_value(avl_node_t * element)
 {
     return return_to_user_struct_pointer(test_avl_t, node, element)->value;
@@ -112,7 +110,7 @@ int main(){
     printf("\n--------------------------------------");
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -122,7 +120,7 @@ int main(){
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
     AVL_insert(&k.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -134,7 +132,7 @@ int main(){
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
     AVL_insert(&l.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
     AVL_init(&a.node);
     AVL_init(&b.node);
     AVL_init(&l.node);
@@ -148,10 +146,10 @@ int main(){
 
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
-    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&c.node, &avl_root_a, compare_value);
     AVL_insert(&d.node, &avl_root_a, compare_value);
     AVL_insert(&e.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -164,11 +162,11 @@ int main(){
 
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
-    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&c.node, &avl_root_a, compare_value); 
     AVL_insert(&d.node, &avl_root_a, compare_value);
     AVL_insert(&e.node, &avl_root_a, compare_value);
     AVL_insert(&k.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
     AVL_init(&a.node);
     AVL_init(&b.node);
     AVL_init(&c.node);
@@ -181,11 +179,11 @@ int main(){
 
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
-    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&c.node, &avl_root_a, compare_value);
     AVL_insert(&d.node, &avl_root_a, compare_value);
     AVL_insert(&e.node, &avl_root_a, compare_value);
     AVL_insert(&l.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -201,15 +199,15 @@ int main(){
 
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
-    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&c.node, &avl_root_a, compare_value);
     AVL_insert(&d.node, &avl_root_a, compare_value);
     AVL_insert(&e.node, &avl_root_a, compare_value);
-    AVL_insert(&f.node, &avl_root_a, compare_value);   
+    AVL_insert(&f.node, &avl_root_a, compare_value);
     AVL_insert(&g.node, &avl_root_a, compare_value);
     AVL_insert(&h.node, &avl_root_a, compare_value);
     AVL_insert(&i.node, &avl_root_a, compare_value);
     AVL_insert(&j.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -228,16 +226,16 @@ int main(){
 
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
-    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&c.node, &avl_root_a, compare_value);
     AVL_insert(&d.node, &avl_root_a, compare_value);
     AVL_insert(&e.node, &avl_root_a, compare_value);
-    AVL_insert(&f.node, &avl_root_a, compare_value);   
+    AVL_insert(&f.node, &avl_root_a, compare_value);
     AVL_insert(&g.node, &avl_root_a, compare_value);
     AVL_insert(&h.node, &avl_root_a, compare_value);
     AVL_insert(&i.node, &avl_root_a, compare_value);
     AVL_insert(&j.node, &avl_root_a, compare_value);
     AVL_insert(&k.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
 
     AVL_init(&a.node);
     AVL_init(&b.node);
@@ -257,20 +255,20 @@ int main(){
 
     AVL_insert(&a.node, &avl_root_a, compare_value);
     AVL_insert(&b.node, &avl_root_a, compare_value);
-    AVL_insert(&c.node, &avl_root_a, compare_value);    
+    AVL_insert(&c.node, &avl_root_a, compare_value);
     AVL_insert(&d.node, &avl_root_a, compare_value);
     AVL_insert(&e.node, &avl_root_a, compare_value);
-    AVL_insert(&f.node, &avl_root_a, compare_value);   
+    AVL_insert(&f.node, &avl_root_a, compare_value);
     AVL_insert(&g.node, &avl_root_a, compare_value);
     AVL_insert(&h.node, &avl_root_a, compare_value);
     AVL_insert(&i.node, &avl_root_a, compare_value);
     AVL_insert(&j.node, &avl_root_a, compare_value);
     AVL_insert(&l.node, &avl_root_a, compare_value);
-    printf_AVL_tree(avl_root_a,  get_value);
+    printf_AVL_tree(avl_root_a,  get_value, 0);
 
     printf("\n");
     
-    printf_AVL_tree(avl_root_a,  get_name);
+    printf_AVL_tree(avl_root_a,  get_name, 1);
 
     printf("\n");
 
@@ -284,58 +282,101 @@ int main(){
     printf("who's value is maximum ? : %c\n", return_to_user_struct_pointer(test_avl_t, node, found)->name);
     
     printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(8, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(7, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(11, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(26, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(21, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(30, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(2, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
 
     found = AVL_find(20, &avl_root_a, compare_key);
-    printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
+    printf("delete %d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
-    printf_AVL_tree(avl_root_a, get_value);
+    printf_AVL_tree(avl_root_a, get_value, 0);
+    printf("\n");
+    printf("--------------------------------\n");
+    printf("home work example\n");
+    printf("--------------------------------\n");
 
+    AVL_init(&a.node);
+    AVL_init(&b.node);
+    AVL_init(&c.node);
+    AVL_init(&d.node);
+    AVL_init(&e.node);
+    AVL_init(&f.node);
+    AVL_init(&g.node);
+    AVL_init(&h.node);
+    AVL_init(&i.node);
+    AVL_init(&j.node);
+    AVL_init(&k.node);
+    avl_root_a = NULL;
 
+    a.value = 90;
+    b.value = 80;
+    c.value = 70;
+    d.value = 60;
+    e.value = 65;
+    f.value = 67;
 
+    AVL_insert(&a.node, &avl_root_a, compare_value);
+    AVL_insert(&b.node, &avl_root_a, compare_value);
+    AVL_insert(&c.node, &avl_root_a, compare_value);
+    AVL_insert(&d.node, &avl_root_a, compare_value);
+    AVL_insert(&e.node, &avl_root_a, compare_value);
+    AVL_insert(&f.node, &avl_root_a, compare_value);
 
-
+    printf_AVL_tree(avl_root_a, get_value, 0);
 
 }

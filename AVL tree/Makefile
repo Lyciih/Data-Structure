@@ -10,7 +10,7 @@ OBJ = \
 all : test
 
 test : test.c AVL_tree.a  
-	gcc $(CFLAG) -o test $^
+	gcc $(CFLAG) -o $@ $^
 
 %.a : $(OBJ)
 	ar -rcs AVL_tree.a $^
