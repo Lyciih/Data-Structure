@@ -9,8 +9,12 @@ OBJ = \
 
 all : test
 
-test : test.c $(OBJ)
+test : test.c AVL_tree.a
 	gcc $(CFLAG) -o $@ $^
+
+%.a : $(OBJ)
+	ar -rcs AVL_tree.a $^
+
 
 obj/%.o : src/%.c
 	gcc $(CFLAG) -c -o $@ $<
