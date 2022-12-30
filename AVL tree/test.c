@@ -29,6 +29,11 @@ int get_value(avl_node_t * element)
     return return_to_user_struct_pointer(test_avl_t, node, element)->value;
 }
 
+int get_name(avl_node_t * element)
+{
+    return return_to_user_struct_pointer(test_avl_t, node, element)->name;
+}
+
 int get_height(avl_node_t * element)
 {
     return element->height;
@@ -40,101 +45,67 @@ int main(){
     avl_node_t * avl_root_a = NULL;
 
 
-    test_avl_t a={
-        .name = 'A',
-        .value = 20,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t a;
+    a.name = 'A';
+    a.value = 20;
+    AVL_init(&a.node);
 
-    test_avl_t b={
-        .name = 'B',
-        .value = 4,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t b;
+    b.name = 'B';
+    b.value = 4;
+    AVL_init(&b.node);
 
-    test_avl_t c={
-        .name = 'C',
-        .value = 26,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t c;
+    c.name = 'C';
+    c.value = 26;
+    AVL_init(&c.node);
 
-    test_avl_t d={
-        .name = 'D',
-        .value = 3,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t d;
+    d.name = 'D';
+    d.value = 3;
+    AVL_init(&d.node);
 
-    test_avl_t e={
-        .name = 'E',
-        .value = 9,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t e;
+    e.name = 'E';
+    e.value = 9;
+    AVL_init(&e.node);
 
-    test_avl_t f={
-        .name = 'F',
-        .value = 21,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t f;
+    f.name = 'F';
+    f.value = 21;
+    AVL_init(&f.node);
 
-    test_avl_t g={
-        .name = 'G',
-        .value = 30,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t g;
+    g.name = 'G';
+    g.value = 30;
+    AVL_init(&g.node);
 
-    test_avl_t h={
-        .name = 'H',
-        .value = 2,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t h;
+    h.name = 'H';
+    h.value = 2;
+    AVL_init(&h.node);
 
-    test_avl_t i={
-        .name = 'I',
-        .value = 7,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t i;
+    i.name = 'I';
+    i.value = 7;
+    AVL_init(&i.node);
 
-    test_avl_t j={
-        .name = 'J',
-        .value = 11,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t j;
+    j.name = 'J';
+    j.value = 11;
+    AVL_init(&j.node);
 
-    test_avl_t k={
-        .name = 'K',
-        .value = 15,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };
+    test_avl_t k;
+    k.name = 'K';
+    k.value = 15;
+    AVL_init(&k.node);
 
-    test_avl_t l={
-        .name = 'L',
-        .value = 8,
-        .node.height = 0,
-        .node.left = NULL,
-        .node.right = NULL
-    };   
+    test_avl_t l;
+    l.name = 'L';
+    l.value = 8;
+    AVL_init(&l.node);
+
+    
 
     printf("\n--------------------------------------");
     printf("\ncase a");
@@ -298,8 +269,23 @@ int main(){
     printf_AVL_tree(avl_root_a,  get_value);
 
     printf("\n");
+    
+    printf_AVL_tree(avl_root_a,  get_name);
+
+    printf("\n");
 
     avl_node_t * found = AVL_find(8, &avl_root_a, compare_key);
+    printf("who's value is 8 ? : %c\n", return_to_user_struct_pointer(test_avl_t, node, found)->name);
+    
+    found = AVL_find_minimum(avl_root_a);
+    printf("who's value is minimum ? : %c\n", return_to_user_struct_pointer(test_avl_t, node, found)->name);
+
+    found = AVL_find_maximum(avl_root_a);
+    printf("who's value is maximum ? : %c\n", return_to_user_struct_pointer(test_avl_t, node, found)->name);
+    
+    printf("\n");
+
+    found = AVL_find(8, &avl_root_a, compare_key);
     printf("%d\n", return_to_user_struct_pointer(test_avl_t, node, found)->value);
     AVL_delete(found, &avl_root_a, compare_value);
 
