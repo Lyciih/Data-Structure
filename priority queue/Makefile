@@ -25,7 +25,7 @@ src/%.o : src/%.c
 .PHONY : clean run
 
 clean :
-	rm -rf test src/*.o *.a
+	rm -f test src/*.o *.a
 
 run :
 	./test

@@ -9,8 +9,8 @@ OBJ = \
 
 all : test
 
-test : test.c AVL_tree.a
-	gcc $(CFLAG) -o $@ $^
+test : test.c AVL_tree.a  
+	gcc $(CFLAG) -o test $^
 
 %.a : $(OBJ)
 	ar -rcs AVL_tree.a $^
@@ -26,4 +26,4 @@ run :
 	./test
 
 clean : 
-	rm -rf test obj/*.o
+	rm -f test obj/*.o  AVL_tree.a
