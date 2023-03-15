@@ -41,7 +41,7 @@ test: libdouble_linked_list.a ${TEST}
 
 .PHONY: clean run
 clean:
-	rm test *.o *.a
+	rm -f test *.o *.a
 
 run:
 	./test
