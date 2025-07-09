@@ -10,11 +10,14 @@ typedef struct HeapType {
     int numElementds;
 }Heap_t;
 
+
 typedef enum {
     MINHEAP = 0,
     MAXHEAP
 }H_class;
 
+
+// 使用者會操作的
 typedef struct PQ {
     H_class pqClass;
     Heap_t heap;
@@ -24,7 +27,7 @@ typedef struct PQ {
 }PQ_t;
 
 
-void createPQ(PQ_t * pq, H_class pqClass, int maxSize, int (*compare)(void * elementA, void * elementB));
+
 
 int IsEmpty(PQ_t * pq);
 
@@ -36,7 +39,10 @@ void * Dequeue(PQ_t * pq);
 
 int count_pq_level(PQ_t * pq);
 
-void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member));
+// 以下兩個需要使用者編寫及提供對應的回調函數指標
 
+void createPQ(PQ_t* pq, H_class pqClass, int maxSize, int (*compare)(void* elementA, void* elementB));
+
+void pq_printf_tree(PQ_t * pq,  char* (*get_data)(void * queue_member));
 
 #endif

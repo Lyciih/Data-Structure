@@ -34,7 +34,7 @@ int count_print_times(int pq_tree_level)
 	{
 		return 0;
 	}
-    else if(pq_tree_level == 1)
+	else if(pq_tree_level == 1)
     {
         return 3;
     }
@@ -44,7 +44,7 @@ int count_print_times(int pq_tree_level)
 	}
 }
 
-void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member))
+void pq_printf_tree(PQ_t* pq,  char*(*get_data)(void* queue_member))
 {   
     if(pq->heap.numElementds == 0)
     {
@@ -115,7 +115,7 @@ void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member))
 				if(label[k] == '*')
 				{
                     offset_direct++;
-					sprintf(buffer, "%s", get_data(*((void **)pq->heap.elements + queue_out)));
+					sprintf(buffer, "%s", get_data(*((void**)pq->heap.elements + queue_out)));
 
                     if(offset_direct % 2 == 1)
                     {
@@ -259,7 +259,7 @@ void pq_printf_tree(PQ_t * pq,  char * (*get_data)(void * queue_member))
 		if(label[k] == '*')
 		{	
             offset_direct++;			
-			sprintf(buffer, "%s", get_data(*((void **)pq->heap.elements + queue_out)));
+			sprintf(buffer, "%s", get_data(*((void**)pq->heap.elements + queue_out)));
 
             if(offset_direct % 2 == 1)
             {

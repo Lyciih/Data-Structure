@@ -1,19 +1,19 @@
 #include<stdio.h>
 #include"pqSpec.h"
 
-typedef struct test_element {
+typedef struct student {
     char ID[10];
     int math;
     int eng;
 }student_t;
 
-int compareMath(void * elementA, void * elementB)
+int compareMath(void* elementA, void* elementB)
 {
-    if(((student_t *)elementA)->math > ((student_t *)elementB)->math)
+    if(((student_t*)elementA)->math > ((student_t*)elementB)->math)
     {
         return 1;
     }
-    else if(((student_t *)elementA)->math < ((student_t *)elementB)->math)
+    else if(((student_t*)elementA)->math < ((student_t*)elementB)->math)
     {
         return -1;
     }
@@ -21,28 +21,28 @@ int compareMath(void * elementA, void * elementB)
 }
 
 
-char * get_ID(void * element)
+char* get_ID(void* element)
 {
-	return ((student_t *)element)->ID;
+	return ((student_t*)element)->ID;
 }
 
-char * get_eng(void * element)
+char* get_eng(void* element)
 {
     static char buffer[20];
-    sprintf(buffer, "%d", ((student_t *)element)->eng);
+    sprintf(buffer, "%d", ((student_t*)element)->eng);
 	return buffer;
 }
 
-char * get_math(void * element)
+char* get_math(void* element)
 {
     static char buffer[20];
-    sprintf(buffer, "%d", ((student_t *)element)->math);
+    sprintf(buffer, "%d", ((student_t*)element)->math);
 	return buffer;
 }
 
 
 
-int main() {
+int main(){
 
     printf("\n");
     printf("-----------------------------------------\n");

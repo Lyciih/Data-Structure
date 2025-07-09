@@ -1,6 +1,6 @@
 #include"pqSpec.h"
 
-void createPQ(PQ_t * pq, H_class pqClass, int maxSize, int (*compare)(void * elementA, void * elementB))
+void createPQ(PQ_t* pq, H_class pqClass, int maxSize, int (*compare)(void* elementA, void* elementB))
 {   
     pq->pqClass = pqClass;
     pq->heap.elements = malloc(maxSize * sizeof(void *));
@@ -10,7 +10,7 @@ void createPQ(PQ_t * pq, H_class pqClass, int maxSize, int (*compare)(void * ele
 }
 
 
-int IsEmpty(PQ_t * pq)
+int IsEmpty(PQ_t* pq)
 {
     if(pq->heap.numElementds == 0)
     {
@@ -22,7 +22,7 @@ int IsEmpty(PQ_t * pq)
     }
 }
 
-int IsFull(PQ_t * pq)
+int IsFull(PQ_t* pq)
 {
     if(pq->heap.numElementds == pq->maxSize)
     {
@@ -35,19 +35,19 @@ int IsFull(PQ_t * pq)
 }
 
 
-int Enqueue(PQ_t * pq, void * elementA)
+int Enqueue(PQ_t* pq, void* elementA)
 {
     if(IsFull(pq) == 0)
     {
         return 1;
     }
 
-    *((void **)(pq->heap.elements) + pq->heap.numElementds) = elementA;
+    *((void**)(pq->heap.elements) + pq->heap.numElementds) = elementA;
     pq->heap.numElementds++;
 
     int location = pq->heap.numElementds;
 
-    void * temp = NULL;
+    void* temp = NULL;
 
     if(pq->heap.numElementds != 1)
     {
@@ -56,11 +56,11 @@ int Enqueue(PQ_t * pq, void * elementA)
             while(location != 1)
             {
                 int TOP = location / 2;
-                if((pq->compare(*((void **)(pq->heap.elements) + TOP - 1), elementA)) == 1)
+                if((pq->compare(*((void**)(pq->heap.elements) + TOP - 1), elementA)) == 1)
                 {
-                    temp = *((void **)(pq->heap.elements) + TOP - 1);
-                    *((void **)(pq->heap.elements) + TOP - 1) = *((void **)(pq->heap.elements) + location - 1);
-                    *((void **)(pq->heap.elements) + location - 1) = temp;
+                    temp = *((void**)(pq->heap.elements) + TOP - 1);
+                    *((void**)(pq->heap.elements) + TOP - 1) = *((void**)(pq->heap.elements) + location - 1);
+                    *((void**)(pq->heap.elements) + location - 1) = temp;
                     location /= 2;
                 }
                 else
@@ -75,11 +75,11 @@ int Enqueue(PQ_t * pq, void * elementA)
             while(location != 1)
             {
                 int TOP = location / 2;
-                if((pq->compare(*((void **)(pq->heap.elements) + TOP - 1), elementA)) == -1)
+                if((pq->compare(*((void**)(pq->heap.elements) + TOP - 1), elementA)) == -1)
                 {
-                    temp = *((void **)(pq->heap.elements) + TOP - 1);
-                    *((void **)(pq->heap.elements) + TOP - 1) = *((void **)(pq->heap.elements) + location - 1);
-                    *((void **)(pq->heap.elements) + location - 1) = temp;
+                    temp = *((void**)(pq->heap.elements) + TOP - 1);
+                    *((void**)(pq->heap.elements) + TOP - 1) = *((void**)(pq->heap.elements) + location - 1);
+                    *((void**)(pq->heap.elements) + location - 1) = temp;
                     location /= 2;
                 }
                 else
@@ -92,7 +92,7 @@ int Enqueue(PQ_t * pq, void * elementA)
     return 0;
 }
 
-int count_pq_level(PQ_t * pq)
+int count_pq_level(PQ_t* pq)
 {    
     int nodes = pq->heap.numElementds;
     int count = 0;
@@ -120,7 +120,7 @@ int count_pq_level(PQ_t * pq)
 
 
 
-void * Dequeue(PQ_t * pq)
+void* Dequeue(PQ_t* pq)
 {
 
     if(IsEmpty(pq) == 0)
@@ -128,16 +128,16 @@ void * Dequeue(PQ_t * pq)
         return NULL;
     }
 
-    void * output = *((void **)(pq->heap.elements));
-    *((void **)(pq->heap.elements)) = *((void **)(pq->heap.elements) + pq->heap.numElementds - 1);
+    void* output = *((void**)(pq->heap.elements));
+    *((void**)(pq->heap.elements)) = *((void**)(pq->heap.elements) + pq->heap.numElementds - 1);
     pq->heap.numElementds--;
 
 
     int location = 1;
-    void * temp = NULL;
-    #define TOP  *((void **)(pq->heap.elements) + location - 1)
-    #define LEFT  *((void **)(pq->heap.elements) + location * 2 - 1)
-    #define RIGHT  *((void **)(pq->heap.elements) + location * 2)
+    void* temp = NULL;
+    #define TOP  *((void**)(pq->heap.elements) + location - 1)
+    #define LEFT  *((void**)(pq->heap.elements) + location * 2 - 1)
+    #define RIGHT  *((void**)(pq->heap.elements) + location * 2)
 
     if(pq->heap.numElementds > 1)
     {
