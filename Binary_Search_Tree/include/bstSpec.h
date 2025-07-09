@@ -7,8 +7,8 @@
 
 
 typedef struct node {
-    struct node *left;
-    struct node *right;
+    struct node* left;
+    struct node* right;
 }btreeNode_t;
 
 //-------  函數  -------//

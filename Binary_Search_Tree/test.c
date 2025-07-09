@@ -5,12 +5,12 @@
 //測試用的結構
 typedef struct test_tree_node{
 	int data;
-	char *name;
+	char* name;
 	btreeNode_t node;
 }test_tree_node;
 
 
-int compare_int(btreeNode_t * insert_element, btreeNode_t * in_tree_element)
+int compare_int(btreeNode_t* insert_element, btreeNode_t* in_tree_element)
 {
 	if(return_to_user_struct_pointer(test_tree_node, node, insert_element)->data < return_to_user_struct_pointer(test_tree_node, node, in_tree_element)->data){return -1;}
 	if(return_to_user_struct_pointer(test_tree_node, node, insert_element)->data > return_to_user_struct_pointer(test_tree_node, node, in_tree_element)->data){return 1;}
@@ -18,7 +18,7 @@ int compare_int(btreeNode_t * insert_element, btreeNode_t * in_tree_element)
 	return 0;
 }
 
-int compare_key(int key, btreeNode_t * in_tree_element)
+int compare_key(int key, btreeNode_t* in_tree_element)
 {
 	if(key < return_to_user_struct_pointer(test_tree_node, node, in_tree_element)->data){return -1;}
 	if(key > return_to_user_struct_pointer(test_tree_node, node, in_tree_element)->data){return 1;}
@@ -26,7 +26,7 @@ int compare_key(int key, btreeNode_t * in_tree_element)
 	return 0;
 }
 
-int compare_Equal(btreeNode_t * node_a, btreeNode_t * node_b)
+int compare_Equal(btreeNode_t* node_a, btreeNode_t* node_b)
 {
 	if(return_to_user_struct_pointer(test_tree_node, node, node_a)->data == return_to_user_struct_pointer(test_tree_node, node, node_b)->data)
 	{
@@ -40,19 +40,19 @@ int compare_Equal(btreeNode_t * node_a, btreeNode_t * node_b)
 
 
 
-void print_data(btreeNode_t * root)
+void print_data(btreeNode_t* root)
 {
 	printf("%d ", return_to_user_struct_pointer(test_tree_node, node, root)->data);
 }
 
-int get_data(btreeNode_t * root)
+int get_data(btreeNode_t* root)
 {
 	return return_to_user_struct_pointer(test_tree_node, node, root)->data;
 }
 
-btreeNode_t * copy_test_node(btreeNode_t * root)
+btreeNode_t* copy_test_node(btreeNode_t* root)
 {
-	test_tree_node * new_node = (test_tree_node *)malloc(sizeof(test_tree_node));
+	test_tree_node* new_node = (test_tree_node *)malloc(sizeof(test_tree_node));
 	*new_node = *return_to_user_struct_pointer(test_tree_node, node, root);
 	Bst_init(&new_node->node);
 	return &new_node->node;
@@ -66,8 +66,8 @@ btreeNode_t * copy_test_node(btreeNode_t * root)
 int main()
 {
 	 
-	btreeNode_t * tree_one = NULL;
-	btreeNode_t * test = NULL;
+	btreeNode_t* tree_one = NULL;
+	btreeNode_t* test = NULL;
 
 	printf("create node : ");
 	test_tree_node root;
@@ -194,7 +194,7 @@ int main()
 	printf("\n");
 
 	printf("print level order of tree_one : ");
-	btreeNode_t * level_temp[10];
+	btreeNode_t* level_temp[10];
 	for(int i = 0 ; i < 10 ; i++)
 	{
 		level_temp[i] = NULL;
@@ -316,7 +316,7 @@ int main()
 	o_test.data = 1;
 	o_test.name = " ";
 
-	btreeNode_t * tree_three = NULL;
+	btreeNode_t* tree_three = NULL;
 
 	printf("\n");
 	printf("insert a_test to tree_three\n");

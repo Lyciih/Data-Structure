@@ -2,14 +2,14 @@
 
 
 
-void Bst_init(btreeNode_t * node)
+void Bst_init(btreeNode_t* node)
 {
     node->left = NULL;
     node->right = NULL;
 }
 
 
-btreeNode_t * findMinNode(btreeNode_t * root)
+btreeNode_t* findMinNode(btreeNode_t* root)
 {
     if(root == NULL)
     {
@@ -27,7 +27,7 @@ btreeNode_t * findMinNode(btreeNode_t * root)
     }
 }
 
-btreeNode_t * findMaxNode(btreeNode_t * root)
+btreeNode_t* findMaxNode(btreeNode_t* root)
 {
     if(root == NULL)
     {
@@ -46,7 +46,7 @@ btreeNode_t * findMaxNode(btreeNode_t * root)
 }
 
 
-void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root))
+void inOrder(btreeNode_t* root, void(*print)(btreeNode_t* root))
 {
     if(root == NULL)
     {
@@ -69,7 +69,7 @@ void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root))
 
 }
 
-btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * root))
+btreeNode_t* treeCopy(btreeNode_t* root, btreeNode_t* (*copy)(btreeNode_t* root))
 {
     if(root != NULL)
     {
@@ -93,7 +93,7 @@ btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * ro
     }
 }
 
-int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNode_t * root_A, btreeNode_t * root_B))
+int treeEqual(btreeNode_t* root_A, btreeNode_t* root_B, int (*compare)(btreeNode_t* root_A, btreeNode_t* root_B))
 {
     if(root_A == NULL && root_B == NULL)
     {
@@ -116,7 +116,7 @@ int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNod
 }
 
 
-int count_tree_level(btreeNode_t * root)
+int count_tree_level(btreeNode_t* root)
 {
     int temp_left = 0;
     int temp_right = 0;

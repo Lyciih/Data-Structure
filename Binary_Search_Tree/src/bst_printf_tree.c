@@ -57,7 +57,7 @@ void queue_init(btreeNode_t * queue[], int range)
 }
 
 
-void tree_level_to_queue(btreeNode_t * root, btreeNode_t * queue[])
+void tree_level_to_queue(btreeNode_t* root, btreeNode_t* queue[])
 {	
 	int queue_head = 0;
 	int queue_tail = 0;
@@ -79,7 +79,7 @@ void tree_level_to_queue(btreeNode_t * root, btreeNode_t * queue[])
 	}
 }
 
-void print_queue_data(btreeNode_t * queue[], void(*print)(btreeNode_t * queue_member))
+void print_queue_data(btreeNode_t* queue[], void(*print)(btreeNode_t* queue_member))
 {
 	int i = 0;
 	while(1)
@@ -98,7 +98,7 @@ void print_queue_data(btreeNode_t * queue[], void(*print)(btreeNode_t * queue_me
 }
 
 
-void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member))
+void printf_tree(btreeNode_t* root,  int(*get_data)(btreeNode_t* queue_member))
 {
 	if(root == NULL)
 	{
@@ -111,7 +111,7 @@ void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member)
 	int queue_trans = 0;
 	int offset = 0;
 	char buffer[20];
-	btreeNode_t * queue[count_queue(level)];
+	btreeNode_t* queue[count_queue(level)];
 
 	queue_init(queue, count_queue(level));
 	tree_level_to_queue(root, queue);

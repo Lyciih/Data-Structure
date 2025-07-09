@@ -2,7 +2,7 @@
 
 
 
-static btreeNode_t * find_child_node(int key, btreeNode_t * root, int(*compare)(int key, btreeNode_t * in_tree_element))
+static btreeNode_t* find_child_node(int key, btreeNode_t* root, int(*compare)(int key, btreeNode_t* in_tree_element))
 {
     if(compare(key, root) == 1)
     {
@@ -50,7 +50,7 @@ static btreeNode_t * find_child_node(int key, btreeNode_t * root, int(*compare)(
 
 
 
-btreeNode_t * findNode(int key, btreeNode_t * root, int(*compare)(int key, btreeNode_t * in_tree_element))
+btreeNode_t* findNode(int key, btreeNode_t* root, int(*compare)(int key, btreeNode_t* in_tree_element))
 {
     if(root == NULL)
     {

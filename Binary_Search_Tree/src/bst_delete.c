@@ -2,10 +2,10 @@
 
 
 
-static void delete_child_node(btreeNode_t * delete_node, btreeNode_t * root, int(*compare)(btreeNode_t * delete_node, btreeNode_t * in_tree_element))
+static void delete_child_node(btreeNode_t* delete_node, btreeNode_t* root, int(*compare)(btreeNode_t* delete_node, btreeNode_t* in_tree_element))
 {
    
-    btreeNode_t * temp;
+    btreeNode_t* temp;
 
     if(compare(delete_node, root) == 1)
     {
@@ -104,9 +104,9 @@ static void delete_child_node(btreeNode_t * delete_node, btreeNode_t * root, int
 }
 
 
-void deleteNode(btreeNode_t * delete_node, btreeNode_t ** root, int(*compare)(btreeNode_t * delete_node, btreeNode_t * in_tree_element))
+void deleteNode(btreeNode_t* delete_node, btreeNode_t** root, int (*compare)(btreeNode_t* delete_node, btreeNode_t* in_tree_element))
 {
-    btreeNode_t * temp;
+    btreeNode_t* temp;
 
     if(*root == NULL)
     {

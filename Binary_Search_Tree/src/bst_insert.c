@@ -2,7 +2,7 @@
 
 
 
-static void insert_child_node(btreeNode_t * insert_element, btreeNode_t * root, int(*compare)(btreeNode_t * insert_element, btreeNode_t * in_tree_element))
+static void insert_child_node(btreeNode_t* insert_element, btreeNode_t* root, int(*compare)(btreeNode_t* insert_element, btreeNode_t* in_tree_element))
 {
     if(compare(insert_element, root) == -1)
     {
@@ -41,10 +41,10 @@ static void insert_child_node(btreeNode_t * insert_element, btreeNode_t * root, 
 }
 
 
-void insertNode(btreeNode_t * insert_element, btreeNode_t ** root, int(*compare)(btreeNode_t * insert_element, btreeNode_t * in_tree_element))
+void insertNode(btreeNode_t* insert_element, btreeNode_t** root, int(*compare)(btreeNode_t* insert_element, btreeNode_t* in_tree_element))
 {
 
-    if((btreeNode_t *)*root == NULL)
+    if((btreeNode_t*)*root == NULL)
     {
         *root = insert_element;
     }
