@@ -30,17 +30,17 @@ int count_tree_level(btreeNode_t* root);
 
 // 以下幾個需要使用者編寫用來比較的回調函數及對應的指標
 
-void insertNode(btreeNode_t* insert_element, btreeNode_t** root, int(*compare)(btreeNode_t* insert_element, btreeNode_t* in_tree_element));
+void insertNode(btreeNode_t* insert_element, btreeNode_t** root, int (*compare)(btreeNode_t* insert_element, btreeNode_t* in_tree_element));
 
-void deleteNode(btreeNode_t* delete_node, btreeNode_t** root, int(*compare)(btreeNode_t* delete_node, btreeNode_t* in_tree_element));
+void deleteNode(btreeNode_t* delete_node, btreeNode_t** root, int (*compare)(btreeNode_t* delete_node, btreeNode_t* in_tree_element));
 
-void inOrder(btreeNode_t* root, void(*print)(btreeNode_t* root));
+void inOrder(btreeNode_t* root, void (*print)(btreeNode_t* root));
 
-btreeNode_t* findNode(int key, btreeNode_t* root, int(*compare)(int key, btreeNode_t* in_tree_element));
+btreeNode_t* findNode(int key, btreeNode_t* root, int (*compare)(int key, btreeNode_t* in_tree_element));
 
-btreeNode_t* treeCopy(btreeNode_t* root, btreeNode_t*(*copy)(btreeNode_t* root));
+btreeNode_t* treeCopy(btreeNode_t* root, btreeNode_t* (*copy)(btreeNode_t* root));
 
-int treeEqual(btreeNode_t* root_A, btreeNode_t* root_B, int(*compare)(btreeNode_t* root_A, btreeNode_t* root_B));
+int treeEqual(btreeNode_t* root_A, btreeNode_t* root_B, int (*compare)(btreeNode_t* root_A, btreeNode_t* root_B));
 
 
 //-------  巨集  -------//
