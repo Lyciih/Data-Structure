@@ -13,35 +13,40 @@ typedef struct node {
 
 //-------  函數  -------//
 
-void Bst_init(btreeNode_t * node);
+void Bst_init(btreeNode_t* node);
 
-void insertNode(btreeNode_t * insert_element, btreeNode_t ** root, int(*compare)(btreeNode_t * insert_element, btreeNode_t * in_tree_element));
+void tree_level_to_queue(btreeNode_t* root, btreeNode_t* queue[]);
 
-void deleteNode(btreeNode_t * delete_node, btreeNode_t ** root, int(*compare)(btreeNode_t * delete_node, btreeNode_t * in_tree_element));
+void printf_tree(btreeNode_t* root,  int(*get_data)(btreeNode_t* queue_member));
 
-void inOrder(btreeNode_t * root, void(*print)(btreeNode_t * root));
+btreeNode_t* findMinNode(btreeNode_t* root);
 
-void tree_level_to_queue(btreeNode_t * root, btreeNode_t * queue[]);
+btreeNode_t* findMaxNode(btreeNode_t* root);
 
-void printf_tree(btreeNode_t * root,  int(*get_data)(btreeNode_t * queue_member));
+int count_tree_level(btreeNode_t* root);
 
-btreeNode_t * findNode(int key, btreeNode_t * root, int(*compare)(int key, btreeNode_t * in_tree_element));
 
-btreeNode_t * findMinNode(btreeNode_t * root);
 
-btreeNode_t * findMaxNode(btreeNode_t * root);
 
-btreeNode_t * treeCopy(btreeNode_t * root, btreeNode_t *(*copy)(btreeNode_t * root));
+// 以下幾個需要使用者編寫用來比較的回調函數及對應的指標
 
-int treeEqual(btreeNode_t * root_A, btreeNode_t * root_B, int(*compare)(btreeNode_t * root_A, btreeNode_t * root_B));
+void insertNode(btreeNode_t* insert_element, btreeNode_t** root, int(*compare)(btreeNode_t* insert_element, btreeNode_t* in_tree_element));
 
-int count_tree_level(btreeNode_t * root);
+void deleteNode(btreeNode_t* delete_node, btreeNode_t** root, int(*compare)(btreeNode_t* delete_node, btreeNode_t* in_tree_element));
+
+void inOrder(btreeNode_t* root, void(*print)(btreeNode_t* root));
+
+btreeNode_t* findNode(int key, btreeNode_t* root, int(*compare)(int key, btreeNode_t* in_tree_element));
+
+btreeNode_t* treeCopy(btreeNode_t* root, btreeNode_t*(*copy)(btreeNode_t* root));
+
+int treeEqual(btreeNode_t* root_A, btreeNode_t* root_B, int(*compare)(btreeNode_t* root_A, btreeNode_t* root_B));
 
 
 //-------  巨集  -------//
 
-#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
+#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE*)0)->MEMBER)
 
-#define return_to_user_struct_pointer(USER_STRUCT, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT *)((size_t)MEMBER_POINT - offsetof(USER_STRUCT, MEMBER_NAME)))
+#define return_to_user_struct_pointer(USER_STRUCT_TYPE, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT_TYPE*)((size_t)MEMBER_POINT - offsetof(USER_STRUCT_TYPE, MEMBER_NAME)))
 
 #endif

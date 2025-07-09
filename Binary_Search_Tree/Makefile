@@ -1,41 +1,34 @@
 CFLAG = -I include -Wall
 
 
-SRCS_C = \
-	src/bst.c \
-	src/bst_delete.c\
-	src/bst_find.c\
-	src/bst_insert.c\
-	src/bst_printf_tree.c\
-
-	
-TEST_C = \
-	test.c \
-
-OBJS = $(SRCS_C:.c=.o)
-TEST = $(TEST_C:.c=.o)
+SRCS = $(wildcard src/*.c)
+OBJS = $(SRCS:src/%.c=obj/%.o)
 
 
 
-all: test
+all: check lib test
 
-test: test.c  binary_search_tree.a
-	gcc $(CFLAG) -o test $^ 
+check:
+	$(shell mkdir -p obj)
+	$(shell mkdir -p bin)
 
-
-
-%.a : $(OBJS)
+lib: $(OBJS)
 	ar -rcs binary_search_tree.a  $^ 
 
 
-src/%.o : src/%.c
+
+test: test.c  binary_search_tree.a
+	gcc $(CFLAG) -o ./bin/test $^ 
+
+
+obj/%.o : src/%.c
 	gcc  -I include -c -o $@ $< 
 
 
 .PHONY: clean run
 
 clean:
-	rm -f *.exe *.a *.out *.elf src/*.o
+	rm -f ./bin/test.exe ./bin/test obj/*.o binary_search_tree.a
 
 run:
-	./test
+	./bin/test
