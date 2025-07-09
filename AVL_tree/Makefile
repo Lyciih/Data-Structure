@@ -12,6 +12,7 @@ all : check lib test
 # 檢查需要的路徑是否存在
 check:
 	$(shell mkdir -p obj)
+	$(shell mkdir -p bin)
 
 # 編譯靜態庫
 lib: $(OBJ)
@@ -20,7 +21,7 @@ lib: $(OBJ)
 
 # 編譯測試程式
 test : test.c AVL_tree.a  
-	gcc $(CFLAG) -o $@ $^
+	gcc $(CFLAG) -o ./bin/test $^
 
 
 # 編譯.o檔
@@ -31,7 +32,7 @@ obj/%.o : src/%.c
 .PHONY : clean run
 
 run :
-	./test
+	./bin/test
 
 clean : 
-	rm -f test test.exe obj/*.o  AVL_tree.a
+	rm -f ./bin/* obj/*.o  AVL_tree.a
