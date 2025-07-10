@@ -1,6 +1,6 @@
 #include "dllSpec.h"
 
-void DLL_free_head(dllNode_t *head)
+void DLL_free_head(dllNode_t* head)
 {
 	memset(head, 0, sizeof(dllNode_t));
 	free(head);

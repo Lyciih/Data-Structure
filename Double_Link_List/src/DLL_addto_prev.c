@@ -1,6 +1,6 @@
 #include "dllSpec.h"
 
-void DLL_addto_prev(dllNode_t *new_node, dllNode_t *node)
+void DLL_addto_prev(dllNode_t* new_node, dllNode_t* node)
 {
 	if(node->prev != NULL)
 	{

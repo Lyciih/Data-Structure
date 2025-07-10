@@ -1,6 +1,6 @@
 #include "dllSpec.h"
 
-int DLL_isEmpty(const dllNode_t *head)
+int DLL_isEmpty(const dllNode_t* head)
 {
 	if(head->prev == NULL)
 	{

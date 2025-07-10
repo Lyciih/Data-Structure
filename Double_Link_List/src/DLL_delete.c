@@ -1,6 +1,6 @@
 #include "dllSpec.h"
 
-void DLL_delete(dllNode_t * node)//(從node所在的 Linked List 中刪除此點)
+void DLL_delete(dllNode_t* node)	// (從 node 所在的 Linked List 中刪除此點)
 {
 	if(node->next == NULL)
 	{

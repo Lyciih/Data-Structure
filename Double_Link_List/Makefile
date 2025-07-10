@@ -1,47 +1,28 @@
 
-
-SRCS_C = \
-	DLL_add_first.c \
-	DLL_add_tail.c \
-	DLL_addto_next.c \
-	DLL_addto_prev.c \
-	DLL_concate.c \
-	DLL_delete.c \
-	DLL_free_head.c \
-	DLL_get_tail.c \
-	DLL_init.c \
-	DLL_isEmpty.c \
-	DLL_next_node.c \
-	DLL_num_nodes.c \
-	
-
-TEST_C = \
-	test.c \
-
-OBJS = $(SRCS_C:.c=.o)
-TEST = $(TEST_C:.c=.o)
-
-INCLUDE = -I ./include
+SRCS = $(wildcard src/*.c)	
+OBJS = $(SRCS:src/%.c=obj/%.o)
 
 
-all: test
+all: check lib test
 
-test: libdouble_linked_list.a ${TEST} 
-	gcc -o test  $(INCLUDE) test.o -L . -l double_linked_list  
+check:
+	$(shell mkdir -p obj)
+	$(shell mkdir -p bin)
 
-
-%.o : %.c
-	gcc -c -o $@ $< $(INCLUDE)
-
-%.a : ${OBJS}
+lib: $(OBJS)
 	ar -rcs libdouble_linked_list.a  $^ 
 
-%.o : ./src/%.c 
-	gcc -c -o $@ $< $(INCLUDE)
+
+test: test.c libdouble_linked_list.a
+	gcc -I include -Wall -o ./bin/test $^ 
+
+
+obj/%.o : src/%.c 
+	gcc -c -I include -Wall -o $@ $^ 
 
 .PHONY: clean run
 clean:
-	rm -f test *.o *.a
+	rm -f ./bin/test ./bin/test.exe ./obj/*.o *.a
 
 run:
-	./test
+	./bin/test

@@ -1,6 +1,6 @@
 #include "dllSpec.h"
 
-void DLL_add_first(dllNode_t * new_node, dllNode_t * head)
+void DLL_add_first(dllNode_t* new_node, dllNode_t* head)
 {
 	if(head->next == NULL)
 	{
