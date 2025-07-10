@@ -28,16 +28,17 @@ void LL_delete_next(llNode_t * node);//(從node所在的 Linked List 中刪除�
 
 llNode_t * LL_concate(llNode_t *srcList, llNode_t * dstList);//(將srcList 串在dstList之後)
 
-
-
-//-------------以下是自己加的function----------------------------------------------------------------------------------------------------------------------
-
-#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
-
-#define return_to_user_struct_pointer(USER_STRUCT, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT *)((size_t)MEMBER_POINT - offsetof(USER_STRUCT, MEMBER_NAME)))
-
 llNode_t *LL_get_tail(llNode_t *head);//取得list的尾巴
 
 void LL_free_head(llNode_t *head);//釋放空的head
+
+
+//-------------巨集----------------------------------------------------------------------------------------------------------------------
+
+// 取得成員在結構中的偏移量
+#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
+
+// 用成員指標反推出結構指標
+#define return_to_user_struct_pointer(USER_STRUCT, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT *)((size_t)MEMBER_POINT - offsetof(USER_STRUCT, MEMBER_NAME)))
 
 #endif

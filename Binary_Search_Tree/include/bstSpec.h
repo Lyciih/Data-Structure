@@ -45,8 +45,10 @@ int treeEqual(btreeNode_t* root_A, btreeNode_t* root_B, int (*compare)(btreeNode
 
 //-------  巨集  -------//
 
+// 取得成員在結構中的偏移量
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE*)0)->MEMBER)
 
+// 用成員指標反推出結構指標
 #define return_to_user_struct_pointer(USER_STRUCT_TYPE, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT_TYPE*)((size_t)MEMBER_POINT - offsetof(USER_STRUCT_TYPE, MEMBER_NAME)))
 
 #endif

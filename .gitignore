@@ -4,3 +4,7 @@
 *.elf
 *.exe
 ./AVL_tree/bin/*
+./Binary_Search_Tree/bin/*
+./priority_queue/bin/*
+./Double_Link_List/bin/*
+./Link_List/bin/*

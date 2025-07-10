@@ -28,6 +28,7 @@ int count_AVL_tree_level(avl_node_t* root);
 
 void printf_AVL_tree(avl_node_t* root,  int(*get_data)(avl_node_t* queue_member), int ascii);
 
+int maximum(int a, int b);
 
 
 
@@ -42,10 +43,10 @@ void AVL_delete(avl_node_t* delete_element, avl_node_t** root, int(*compare)(voi
 
 //-------  巨集  -------//
 
+// 取得成員在結構中的偏移量
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE*)0)->MEMBER)
 
+// 用成員指標反推出結構指標
 #define return_to_user_struct_pointer(USER_STRUCT_TYPE, MEMBER_NAME, MEMBER_POINT)  ((USER_STRUCT_TYPE*)((size_t)MEMBER_POINT - offsetof(USER_STRUCT_TYPE, MEMBER_NAME)))
-
-int maximum(int a, int b);
 
 #endif 
