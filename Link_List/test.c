@@ -3,10 +3,10 @@
 
 
 
-typedef struct test{
+typedef struct test {
 	char data;
 	llNode_t node;
-}testNode;
+} testNode;
 
 
 testNode testNode_new()
@@ -18,10 +18,10 @@ testNode testNode_new()
 
 
 
-void printf_all_list(llNode_t *head)
+void printf_all_list(llNode_t* head)
 {
 	printf(">>> ");
-	llNode_t *current = head;
+	llNode_t* current = head;
 	while(current->next != NULL )
 	{
 		current = current->next;
@@ -30,7 +30,7 @@ void printf_all_list(llNode_t *head)
 	printf("end\n");
 }
 
-void printf_node_data(llNode_t *current)
+void printf_node_data(llNode_t* current)
 {
 	printf("%c\n", return_to_user_struct_pointer(testNode, node, current)->data);
 }
@@ -42,7 +42,7 @@ int main()
 	printf("\n");
 	
 	printf("1.Apply a empty list\n");
-	llNode_t *list_one = LL_init();
+	llNode_t* list_one = LL_init();
 	printf("\n");
 	
 	printf("2.Test list is empty?\n");
@@ -67,7 +67,7 @@ int main()
 	printf("\n");
 	
 	printf("4.Test LL_get_tail when list_one is empty\n");
-	llNode_t *tail = LL_get_tail(list_one);
+	llNode_t* tail = LL_get_tail(list_one);
 	printf("\n");
 
 	printf("5.Use LL_add_first insert z as first node of list_one\n");
@@ -103,7 +103,7 @@ int main()
 	
 	printf("12.Test LL_get_tail  when list_one not empty\n");
 	tail = LL_get_tail(list_one);
-	printf(">>> The tail is %c\n", ((testNode *)tail)->data);
+	printf(">>> The tail is %c\n", ((testNode*)tail)->data);
 	printf_all_list(list_one);
 	printf("\n");
 	
@@ -129,7 +129,7 @@ int main()
 
 	
 	printf("20.Create list_two\n");
-	llNode_t *list_two = LL_init();
+	llNode_t* list_two = LL_init();
 	printf("\n");
 	
 	printf("21.Create nodes g h i j k l m\n");	

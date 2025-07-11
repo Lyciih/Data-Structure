@@ -1,8 +1,8 @@
 #include "linked_list.h"
 
-llNode_t * LL_get_tail(llNode_t *head)
+llNode_t* LL_get_tail(llNode_t* head)
 {
-	llNode_t *current = head;
+	llNode_t* current = head;
 	if(current->next == NULL)
 	{
 		return current;

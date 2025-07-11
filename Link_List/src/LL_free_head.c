@@ -1,6 +1,6 @@
 #include "linked_list.h"
 
-void LL_free_head(llNode_t *head)
+void LL_free_head(llNode_t* head)
 {
 	memset(head, 0, sizeof(llNode_t));
 	free(head);

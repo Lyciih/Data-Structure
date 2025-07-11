@@ -1,6 +1,6 @@
 #include "linked_list.h"
 
-void LL_add_first(llNode_t * new_node, llNode_t * head)
+void LL_add_first(llNode_t* new_node, llNode_t* head)
 {
 	if(head->next == NULL)
 	{
