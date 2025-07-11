@@ -26,7 +26,7 @@
 make
 ```
 
-將.a檔放入自己的開發路徑中。可參考以下範例方式編譯：
+將 .a檔 跟 標頭檔 放入自己的專案中。可參考以下範例方式編譯：
 
 ```bash
 gcc -I include -Wall -o ./bin/test test.c liblinked_list.a
