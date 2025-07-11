@@ -70,10 +70,10 @@ gcc -I include -Wall -o ./bin/test test.c liblinked_list.a
 若你希望深入瞭解各模組細節，請點擊以下各模組的說明文件：
 
 - [`AVL_tree.a` 使用說明](./AVL_tree/使用說明書.md)
-- [`binary_search_tree.a` 使用說明](./binary_search_tree/使用說明書.md)
-- [`libdouble_linked_list.a` 使用說明](./double_linked_list/使用說明書.md)
-- [`liblinked_list.a` 使用說明](./linked_list/使用說明書.md)
-- [`priority_queue.a` 使用說明](./priority_queue/使用說明書.md)
+- [`binary_search_tree.a` 使用說明](./Binary_Search_Tree/使用說明書.md)
+- [`libdouble_linked_list.a` 使用說明](./Double_Link_List/使用說明書.md)
+- [`liblinked_list.a` 使用說明](./Link_List/使用說明書.md)
+- [`priority_queue.a` 使用說明](./Priority_queue/使用說明書.md)
 
 ---
 
