@@ -1,4 +1,4 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
 void LL_add_tail(llNode_t* new_node, llNode_t* head)
 {

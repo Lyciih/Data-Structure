@@ -1,6 +1,6 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
-unsigned int LL_num_nodes(const llNode_t* head)	// 計算List中有幾個node
+unsigned int LL_num_nodes(const llNode_t* head)	// 計算串列中有幾個節點
 {
 	int count = 0;
 	llNode_t* current = (llNode_t*)head;

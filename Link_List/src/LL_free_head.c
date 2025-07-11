@@ -1,4 +1,4 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
 void LL_free_head(llNode_t* head)
 {

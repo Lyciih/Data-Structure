@@ -1,6 +1,6 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
-void LL_concate(llNode_t* srcList, llNode_t* dstList)	// (將srcList 串在dstList之後)
+void LL_concate(llNode_t* srcList, llNode_t* dstList)	// 串列相接
 {
 	llNode_t* tail = LL_get_tail(dstList);
 	tail->next = srcList->next;

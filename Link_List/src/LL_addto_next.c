@@ -1,4 +1,4 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
 void LL_addto_next(llNode_t* new_node, llNode_t* node)
 {

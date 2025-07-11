@@ -1,6 +1,6 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
-void LL_delete_next(llNode_t* node)	// (從node所在的 Linked List 中刪除此點)
+void LL_delete_next(llNode_t* node)	// 刪除下一個節點
 {
 	llNode_t* temp;
 	if(node->next == NULL)

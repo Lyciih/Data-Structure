@@ -1,4 +1,4 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
 llNode_t* LL_init()
 {

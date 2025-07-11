@@ -1,4 +1,4 @@
-#include "linked_list.h"
+#include "llSpec.h"
 
 int LL_isEmpty(const llNode_t* head)
 {
